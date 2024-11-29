@@ -32,7 +32,7 @@ class M_thong_ke extends database
         return $this->pdo_query_one($sql);
     }
     function getorder_minmax(){
-        $sql="SELECT SUM(gia_tien) as sum FROM ct_don_hang  group by id_don_hang ";
+        $sql="SELECT SUM(tong_ct) as sum FROM ct_don_hang  group by id_don_hang ";
         return $this->pdo_query($sql);
     }
     

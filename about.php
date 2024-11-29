@@ -108,9 +108,9 @@
     
     <!-- Phần Header -->
     <header class="bg-dark text-white text-center py-5">
-        <img src="public/asset/logo.png" alt="Thế Giới Apple Logo" class="logo">
-        <h1 class="mt-3">Chào Mừng Đến Với Thế Giới Apple</h1>
-        <p>Nhà Cung Cấp Thiết Bị Apple Đáng Tin Cậy</p>
+        <img src="public/asset/logo.jpg" alt="Thế Giới Apple Logo" class="logo">
+        <h1 class="mt-3">Chào Mừng Đến Với S-Tech</h1>
+        <p>Nhà Cung Cấp Điện Thoại Đáng Tin Cậy</p>
     </header>
 
     <!-- Phần Giới Thiệu -->
@@ -120,10 +120,7 @@
                 <div class="col-md-8">
                     <h2 class="mb-4">Về Chúng Tôi</h2>
                     <p class="lead">
-                        Tại Thế Giới Apple, chúng tôi đam mê cung cấp cho bạn những thiết bị Apple mới nhất và tốt nhất. Từ các dòng iPhone mới nhất đến MacBook và Apple Watch tiên tiến, chúng tôi mang đến cho bạn những sản phẩm công nghệ đỉnh cao của Apple.
-                    </p>
-                    <p>
-                        Sứ mệnh của chúng tôi là đảm bảo rằng mỗi khách hàng đều trải nghiệm sự đổi mới, chất lượng và sự hoàn hảo mà các sản phẩm Apple đại diện. Chúng tôi cam kết cung cấp dịch vụ khách hàng xuất sắc, dù bạn mua sắm trực tuyến hay tại cửa hàng.
+                    S-Tech là trang web chuyên cung cấp các dòng điện thoại di động hiện đại, chất lượng cao từ các thương hiệu hàng đầu. Với giao diện thân thiện, dễ sử dụng, S-Tech giúp khách hàng dễ dàng lựa chọn sản phẩm phù hợp với nhu cầu, từ mẫu mã, màu sắc đến dung lượng lưu trữ. Chúng tôi cam kết mang đến trải nghiệm mua sắm tiện lợi, giá cả cạnh tranh và dịch vụ hỗ trợ tận tình, giúp bạn sở hữu chiếc điện thoại mơ ước một cách nhanh chóng và an tâm nhất.
                     </p>
                 </div>
             </div>
@@ -132,7 +129,7 @@
                     <div class="card border-0 shadow-lg">
                         <div class="card-body">
                             <i class="bi bi-phone-fill icon"></i>
-                            <h5 class="card-title mt-3">iPhone</h5>
+                            <h5 class="card-title mt-3">Iphone</h5>
                             <p class="card-text">Khám phá các dòng iPhone mới nhất với công nghệ tiên tiến, thiết kế tinh tế và hiệu suất vượt trội.</p>
                         </div>
                     </div>
@@ -141,8 +138,8 @@
                     <div class="card border-0 shadow-lg">
                         <div class="card-body">
                             <i class="bi bi-laptop-fill icon"></i>
-                            <h5 class="card-title mt-3">MacBook</h5>
-                            <p class="card-text">Tìm hiểu về các dòng MacBook mạnh mẽ, kết hợp giữa hiệu năng, tính di động và sự tinh tế.</p>
+                            <h5 class="card-title mt-3">Samsung</h5>
+                            <p class="card-text">Tìm hiểu về các dòng điện thoại Samsung mạnh mẽ, kết hợp giữa hiệu năng, tính di động và sự tinh tế.</p>
                         </div>
                     </div>
                 </div>
@@ -150,8 +147,8 @@
                     <div class="card border-0 shadow-lg">
                         <div class="card-body">
                             <i class="bi bi-watch icon"></i>
-                            <h5 class="card-title mt-3">Apple Watch</h5>
-                            <p class="card-text">Luôn kết nối và chăm sóc sức khỏe với các dòng Apple Watch mới nhất, có tính năng theo dõi sức khỏe tiên tiến và thiết kế thời trang.</p>
+                            <h5 class="card-title mt-3">Oppo</h5>
+                            <p class="card-text">Luôn kết nối và chăm sóc sức khỏe với các dòng Oppo mới nhất, có tính năng theo dõi sức khỏe tiên tiến và thiết kế thời trang.</p>
                         </div>
                     </div>
                 </div>

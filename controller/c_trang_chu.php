@@ -21,17 +21,17 @@ class C_trang_chu
         include("view_site/layout/index.php");
     }
 
-    function hienthimanhinh1()
+    function search($search)
     {
         // gọi dữ liệu 
         $m_trang_chu = new M_hang_hoa();
-        $hang_hoa = $m_trang_chu->hang_hoa_selectall();
+        $hang_hoa = $m_trang_chu->hang_hoa_select_by_seacrh($search);
         $m_loai_hang = new M_loai_hang();
         $loai_hang = $m_loai_hang->loai_selectall();
         // select all 
 
         $title = "Trang chủ";
-        $view = "view_site/trang_chu/trang_chu.php";
+        $view = "view_site/tim_kiem/tim_kiem.php";
         include("view_site/layout/index.php");
     }
     function chi_tiet_san_pham($ma_hang_hoa, $ma_loai)
