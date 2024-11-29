@@ -140,11 +140,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="mt-3 d-grid gap-2">
 
                             <!-- <button id="add" class="btn btn-danger"></button> -->
-<<<<<<< HEAD
                             <button id="add" class="btn btn-danger" type="submit">Thêm vào giỏ hàng</button>
-=======
-                            <button id="add" class="btn btn-danger" type="submit">Mua ngay</button>
->>>>>>> 842220d63a67da108ca282de3b917a9f7ffba787
 
                             <a href="#" class="btn btn-success"><i class="fa-solid fa-phone"></i> Liên hệ</a>
                         </div>

@@ -8,14 +8,11 @@ class M_hang_hoa extends database
         $sql = "SELECT * FROM hang_hoa WHERE an_hang_hoa=0";
         return $this->pdo_query($sql, []);
     }
-<<<<<<< HEAD
     function hang_hoa_select_by_seacrh($ten_hang_hoa)
     {
         $sql = "SELECT * FROM hang_hoa WHERE an_hang_hoa=0 AND ten_hang_hoa like '%$ten_hang_hoa%'";
         return $this->pdo_query($sql, []);
     }
-=======
->>>>>>> 842220d63a67da108ca282de3b917a9f7ffba787
 
     function hang_hoa_select_by_loai($ma_loai)
     {
