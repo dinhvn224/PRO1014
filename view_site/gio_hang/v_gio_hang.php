@@ -47,7 +47,11 @@
 
                                 <input type="button" value="-" class="giam btn btn-primary rounded rounded-circle" data-ma-gio-hang="<?php echo $gio_hang['id_gio_hang'] ?>">
                             </td>
+<<<<<<< HEAD
                             <td id="<?php echo "tong_tien" . $gio_hang['id_gio_hang'] ?>"><?php echo $gio_hang['tong_gia'] ?></td>
+=======
+                            <td><?php echo $gio_hang['tong_gia'] ?></td>
+>>>>>>> 842220d63a67da108ca282de3b917a9f7ffba787
                             <td> <input type="button" value="Xoá" class="xoa btn btn-danger" data-ma-gio-hang="<?php echo $gio_hang['id_gio_hang'] ?>">
                                 <input type="hidden" name="xoa" value="xoa">
                             </td>
@@ -80,6 +84,10 @@
                                 }
                                 ?>
 
+<<<<<<< HEAD
+=======
+                            <h5 class="fw-bold text-danger">Thành tiền : $</h5>
+>>>>>>> 842220d63a67da108ca282de3b917a9f7ffba787
                         </div>
 
                     </div>
@@ -93,7 +101,10 @@
 
 <script>
     $('.tang').on('click', function() {
+<<<<<<< HEAD
         var don_gia=<?php echo $gio_hang['don_gia'] ?>;
+=======
+>>>>>>> 842220d63a67da108ca282de3b917a9f7ffba787
         var ma_gio_hang = $(this).data('ma-gio-hang');
         var dataToSend = {
             ma_gio_hang: ma_gio_hang,
@@ -108,7 +119,10 @@
                 data = JSON.parse(data);
                 console.log(data[3]);
                 $(`#ma_gio_hang${data[0]}`).text(data[5]);
+<<<<<<< HEAD
                 $(`#tong_tien${data[0]}`).text(data[5]*don_gia);
+=======
+>>>>>>> 842220d63a67da108ca282de3b917a9f7ffba787
                 // Xử lý kết quả thành công từ máy chủ nếu cần
             },
             error: function(xhr, status, error) {
@@ -119,7 +133,10 @@
     });
 
     $('.giam').on('click', function() {
+<<<<<<< HEAD
         var don_gia=<?php echo $gio_hang['don_gia'] ?>;
+=======
+>>>>>>> 842220d63a67da108ca282de3b917a9f7ffba787
         var ma_gio_hang = $(this).data('ma-gio-hang');
         var action = "tru"; // Sửa tên biến thành "action"
         var dataToSend = {
@@ -135,7 +152,10 @@
                 data = JSON.parse(data);
                 console.log(data[3]);
                 $(`#ma_gio_hang${data[0]}`).text(data[5]);
+<<<<<<< HEAD
                 $(`#tong_tien${data[0]}`).text(data[5]*don_gia);
+=======
+>>>>>>> 842220d63a67da108ca282de3b917a9f7ffba787
                 // Xử lý kết quả thành công từ máy chủ nếu cần
             },
             error: function(xhr, status, error) {

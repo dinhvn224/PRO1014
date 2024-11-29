@@ -50,11 +50,17 @@
                             <?php include_once "controller/c_gio_hang.php";
                             $arrPro = explode(".", rtrim($_GET['id_gio_hang']));
                             echo '<h1></h1>';
+<<<<<<< HEAD
                             $tong=0;
                             for ($i = 0; $i < count($arrPro)-1; $i++) {
                             
                             $dat_hang = (new C_gio_hang())->gio_hang_by_id($arrPro[$i]);  
                             $tong+=$dat_hang[0]['tong_gia'];
+=======
+                            for ($i = 0; $i < count($arrPro)-1; $i++) {
+                            
+                            $dat_hang = (new C_gio_hang())->gio_hang_by_id($arrPro[$i]);  
+>>>>>>> 842220d63a67da108ca282de3b917a9f7ffba787
                             ?>
 
                                 <tr>
@@ -67,11 +73,14 @@
                 <?php }
 
                 ?>
+<<<<<<< HEAD
                 <tr >
                     <td class="bg-success text-white" colspan="3">Tổng tiền</td>
                     <td ><?=$tong?></td>
             </tr>
 
+=======
+>>>>>>> 842220d63a67da108ca282de3b917a9f7ffba787
                 </tbody>
                     </table>
                 <input type="submit" name="add_salee" class="btn btn-primary w-100 form-input my-3" value="Đặt hàng">
@@ -97,17 +106,28 @@
 
         $oderID = (new database())->pdo_query_one('select MAX(id_don_hang) from don_hang;');
         
+<<<<<<< HEAD
         $queryCTDH = "INSERT INTO `ct_don_hang`(`hang_hoa_id`, `color_id`, `capacity_id`, `so_luong`, `id_don_hang`, `tong_ct`)
         VALUES(?,?,?,?,?,?)";
         for ($i = 0; $i < count($arrPro)-1; $i++) {        
         $dat_hang = (new C_gio_hang())->gio_hang_by_id($arrPro[$i]);  
         $don_gia =  $dat_hang[0]['don_gia'];
+=======
+        $queryCTDH = "INSERT INTO `ct_don_hang`(`hang_hoa_id`, `color_id`, `capacity_id`, `so_luong`, `id_don_hang`)
+        VALUES(?,?,?,?,?)";
+        for ($i = 0; $i < count($arrPro)-1; $i++) {        
+        $dat_hang = (new C_gio_hang())->gio_hang_by_id($arrPro[$i]);  
+>>>>>>> 842220d63a67da108ca282de3b917a9f7ffba787
         $ma_san_pham =  $dat_hang[0]['ma_san_pham'];
         $color_id =  $dat_hang[0]['color_id'];
         $capacity_id =  $dat_hang[0]['capacity_id'];
         $so_luong_san_pham =  $dat_hang[0]['so_luong_san_pham'];
 
+<<<<<<< HEAD
         (new database())->pdo_execute($queryCTDH, $ma_san_pham , $color_id,  $capacity_id, $so_luong_san_pham, $oderID[0], $so_luong_san_pham*$don_gia);
+=======
+        (new database())->pdo_execute($queryCTDH, $ma_san_pham , $color_id,  $capacity_id, $so_luong_san_pham, $oderID[0]);
+>>>>>>> 842220d63a67da108ca282de3b917a9f7ffba787
         $xoa_gio_hang = (new C_gio_hang())->xoa_gio_hang($arrPro[$i],  $id);
         
     }

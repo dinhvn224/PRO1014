@@ -7,6 +7,7 @@
                 </a>
             </div>
             <div class="col-md-4">
+<<<<<<< HEAD
             <form action="" method="post">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" name="search" required placeholder="Từ khoá tìm kiếm "
@@ -14,6 +15,13 @@
                     <button type="submit" class="input-group-text" name="search-btn" id="basic-addon2"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
                 </form>
+=======
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Từ khoá tìm kiếm "
+                        aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <span class="input-group-text" id="basic-addon2"><i class="fa-solid fa-magnifying-glass"></i></span>
+                </div>
+>>>>>>> 842220d63a67da108ca282de3b917a9f7ffba787
             </div>
             <div class="col-md-3">
                 <div class="row">
