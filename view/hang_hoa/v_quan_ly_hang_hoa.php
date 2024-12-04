@@ -24,7 +24,11 @@
             <td><?php echo $hang_hoa['don_gia'] ?></td>
             <td><?php echo $hang_hoa['giam_gia'] ?></td>
             <td><img src="public/asset/<?php echo  $hang_hoa['hinh'] ?>" height="80px" width="80px"></td>
+<<<<<<< HEAD
             <td><?php echo $hang_hoa['ngay_nhap'] ?></td>
+=======
+            <td><?php echo $hang_hoa['ngay_nhap'] ?></td>	
+>>>>>>> 9d04fa8c006b4ebaab62f523c974c0ba80c17206
             <td><?php echo $hang_hoa['so_luong'] ?></td>
             <td><?php echo $hang_hoa['so_luot_xem'] ?></td>
             <td>
