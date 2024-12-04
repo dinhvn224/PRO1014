@@ -13,6 +13,9 @@
         <label class="form-label">Giảm giá</label>
         <input type="number" class="form-control" name="giam_gia" value="" required>
 
+        <label class="form-label">Số lượng </label>
+        <input type="number" class="form-control" name="so_luong" value="" required>
+
         <label class="form-label">Hình </label>
         <input type="file" class="form-control" name="hinh" value="" required>
 

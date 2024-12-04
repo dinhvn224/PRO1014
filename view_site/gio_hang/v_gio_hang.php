@@ -30,7 +30,6 @@
 
                     foreach ($gio_hang_get_list as $index => $gio_hang) { ?>
                         <tr>
-
                             <td><input id="checkbox" type="checkbox" value="<?= $gio_hang['id_gio_hang'] ?>" /></td>
                             <th scope="row"><?php echo $index + 1 ?></th>
                             <td><img style="width: 60px;" src="public/asset/<?= $gio_hang['hinh'] ?>" /></td>
@@ -94,9 +93,11 @@
 <script>
     $('.tang').on('click', function() {
         var don_gia=<?php echo $gio_hang['don_gia'] ?>;
+        var ma_san_pham=<?php echo $gio_hang['ma_san_pham'] ?>;
         var ma_gio_hang = $(this).data('ma-gio-hang');
         var dataToSend = {
             ma_gio_hang: ma_gio_hang,
+            ma_san_pham: ma_san_pham,
             action: "add" // Sử dụng biến "action" thay vì "ation"
         };
 
@@ -105,11 +106,17 @@
             method: "POST",
             data: dataToSend,
             success: function(data) {
-                data = JSON.parse(data);
-                console.log(data[3]);
-                $(`#ma_gio_hang${data[0]}`).text(data[5]);
-                $(`#tong_tien${data[0]}`).text(data[5]*don_gia);
+                var data = JSON.parse(data); 
+        if (data.status === "error") {
+            alert("Sản phẩm này đã hết hàng.");
+        } else if(data.status === "success"){
+            console.log(data.res[3]);
+                $(`#ma_gio_hang${data.res[0]}`).text(data.res[5]);
+                $(`#tong_tien${data.res[0]}`).text(data.res[5]*don_gia);
                 // Xử lý kết quả thành công từ máy chủ nếu cần
+        }
+
+               
             },
             error: function(xhr, status, error) {
                 // Xử lý lỗi nếu có

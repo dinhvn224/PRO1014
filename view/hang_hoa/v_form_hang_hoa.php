@@ -16,6 +16,9 @@
         <label class="form-label">Giảm giá</label>
         <input type="number" min="0" step="1" class="form-control" name="giam_gia" value="<?php echo  $hang_hoa_by_id["giam_gia"] ?>">
 
+        <label class="form-label">Số lượng </label>
+        <input type="number" class="form-control" name="so_luong" value="<?php echo  $hang_hoa_by_id["so_luong"] ?>" required>
+
         <label class="form-label">Hình </label>
         <input type="file" class="form-control" name="hinh">
         <input type="hidden" value="<?php echo  $hang_hoa_by_id["hinh"] ?>" name="img_old">

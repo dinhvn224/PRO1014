@@ -109,6 +109,9 @@
 
         (new database())->pdo_execute($queryCTDH, $ma_san_pham , $color_id,  $capacity_id, $so_luong_san_pham, $oderID[0], $so_luong_san_pham*$don_gia);
         $xoa_gio_hang = (new C_gio_hang())->xoa_gio_hang($arrPro[$i],  $id);
+
+        $queryCTDH1 = "UPDATE hang_hoa SET so_luong=so_luong-$so_luong_san_pham WHERE ma_hang_hoa=$ma_san_pham";
+        (new database())->pdo_execute($queryCTDH1);
         
     }
     echo"<script>

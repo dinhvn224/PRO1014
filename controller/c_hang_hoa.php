@@ -55,7 +55,8 @@ class C_hang_hoa
             $file_name,
             $a["ngay_nhap"],
             $a["mo_ta"],
-            $a["ma_loai"]
+            $a["ma_loai"],
+            $a["so_luong"],
         );
         header("Location: hang_hoa.php");
     }
@@ -109,7 +110,8 @@ class C_hang_hoa
             $hinh,
             $a2["ngay_nhap"],
             $a2["mo_ta"],
-            $a2["ma_loai"]
+            $a2["ma_loai"],
+            $a2["so_luong"]
         );
         //Xử lý tệp tải lên (nếu có)
         //update xong trả ra tranh chinhs

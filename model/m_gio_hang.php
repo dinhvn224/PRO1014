@@ -25,16 +25,35 @@ class M_gio_hang extends database
 
     function them_sp_vao_gio_hang($sp, $ma_khach_hang)
     {
+        
+
+        $sql_check1  = "SELECT * FROM hang_hoa WHERE  ma_hang_hoa = ? ";
+        $flag1 = $this->pdo_query_one($sql_check1, [$sp["ma_san_pham"]]);
+        if($flag1['so_luong']==0){
+            return false;
+        }
         $sql_check  = "SELECT * FROM gio_hang WHERE ma_khach_hang = ? AND ma_san_pham = ? AND color_id = ? AND capacity_id = ?";
         $flag = $this->pdo_query_one($sql_check, [$ma_khach_hang, $sp["ma_san_pham"], $sp["color_id"], $sp["capacity_id"]]);
 
         if ($flag) {
+            $sql_check2  = "SELECT SUM(so_luong_san_pham) as 'so_luong_san_pham'  FROM gio_hang WHERE ma_khach_hang = ? AND ma_san_pham = ? GROUP BY ma_san_pham  ";
+            $flag2 = $this->pdo_query_one($sql_check2, [$ma_khach_hang, $sp["ma_san_pham"]]);
+            if($flag1['so_luong']<=$flag2['so_luong_san_pham']){
+                return false;
+            }
             $sql_update = "UPDATE gio_hang SET so_luong_san_pham = so_luong_san_pham + 1 WHERE ma_khach_hang = ? AND ma_san_pham = ? AND color_id = ? AND capacity_id = ?";
             $this->pdo_execute($sql_update, $ma_khach_hang, $sp["ma_san_pham"], $sp["color_id"], $sp["capacity_id"]);
         } else {
+            $sql_check2  = "SELECT SUM(so_luong_san_pham) as 'so_luong_san_pham'  FROM gio_hang WHERE ma_khach_hang = ? AND ma_san_pham = ? GROUP BY ma_san_pham  ";
+            $flag2 = $this->pdo_query_one($sql_check2, [$ma_khach_hang, $sp["ma_san_pham"]]);
+            if($flag1['so_luong']<=$flag2['so_luong_san_pham']){
+                return false;
+            }
             $sql = "INSERT INTO gio_hang (ma_khach_hang, ma_san_pham, color_id, capacity_id, so_luong_san_pham) VALUE (?, ?, ?, ?, ?)";
-            return $this->pdo_execute($sql, $ma_khach_hang, $sp["ma_san_pham"], $sp["color_id"], $sp["capacity_id"], $sp["so_luong"]);
+             $this->pdo_execute($sql, $ma_khach_hang, $sp["ma_san_pham"], $sp["color_id"], $sp["capacity_id"], $sp["so_luong"]);
         }
+
+        return true;
     }
     function them_sp_vao_gio_hang2($sp, $ma_khach_hang){
         $sql_check  = "SELECT * FROM gio_hang WHERE ma_khach_hang = ? AND ma_san_pham = ?";
@@ -64,13 +83,23 @@ class M_gio_hang extends database
 
     function update_tang($sp, $ma_khach_hang)
     {
+        
         $sql_check  = "SELECT * FROM gio_hang WHERE ma_khach_hang = ? AND id_gio_hang  = ?";
         $flag = $this->pdo_query_one($sql_check, [$ma_khach_hang, $sp["ma_gio_hang"]]);
 
+        $sql_check2  = "SELECT SUM(so_luong_san_pham) as 'so_luong_san_pham'  FROM gio_hang WHERE ma_khach_hang = ? AND ma_san_pham = ? GROUP BY ma_san_pham  ";
+        $flag2 = $this->pdo_query_one($sql_check2, [$ma_khach_hang, $sp["ma_san_pham"]]);
+
+        $sql_check1  = "SELECT * FROM hang_hoa WHERE  ma_hang_hoa = ? ";
+        $flag1 = $this->pdo_query_one($sql_check1, [$sp["ma_san_pham"]]);
+        if($flag1['so_luong']<=$flag2['so_luong_san_pham']){
+            return false;
+        }
         if ($flag > 0) {
         $sql_update = "UPDATE gio_hang SET so_luong_san_pham = so_luong_san_pham + 1 WHERE ma_khach_hang = ? AND id_gio_hang  = ? ";
         $this->pdo_execute($sql_update, $ma_khach_hang, $sp["ma_gio_hang"]);
         }
+        return true;
     }
 
     function update_giam($sp, $ma_khach_hang)

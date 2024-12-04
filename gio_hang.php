@@ -11,12 +11,23 @@ include("controller/c_gio_hang.php");
 $c_gio_hang = new C_gio_hang();
 if (isset($_POST['action']) && $_POST['action'] === 'create') {
 
-    $c_gio_hang->tao_gio_hang($_POST, $ma_khach_hang);
-    return;
+    $result = $c_gio_hang->tao_gio_hang($_POST, $ma_khach_hang);
+
+    if ($result === false) {
+        echo json_encode(['status' => 'error', 'message' => 'Sản phẩm đã hết hàng']);
+    } else {
+        echo json_encode(['status' => 'success', 'message' => 'Thêm vào giỏ hàng thành công']);
+    }
+    exit;
+
 }
 if (isset($_POST['action']) && $_POST['action'] === 'add') {
     $res = $c_gio_hang->sua_gio_hang_tang($_POST, $ma_khach_hang);
-    echo (json_encode($res));
+    if ($res === false) {
+        echo json_encode(['status' => 'error', 'message' => 'Sản phẩm đã hết hàng']);
+    } else {
+        echo json_encode(['status' => 'success', 'message' => 'Thêm vào giỏ hàng thành công','res'=>$res]);
+    }
     return;
 }
 if (isset($_POST['action']) && $_POST['action'] === 'tru') {

@@ -17,7 +17,7 @@ if(isset($_POST['delete'])){
     return;
 }
 if(isset($_GET['ma_don'])){
-    $c_loai_hang->chitietdonhang($_GET['ma_don']);
+    $c_loai_hang->chitietdonhang1($_GET['ma_don']);
     return;
 }
 

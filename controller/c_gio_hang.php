@@ -14,13 +14,16 @@ class C_gio_hang
     function tao_gio_hang($gh, $ma_khach_hang)
     {
         $m_gio_hang = new M_gio_hang();
-        $m_gio_hang->them_sp_vao_gio_hang($gh, $ma_khach_hang);
+        return $m_gio_hang->them_sp_vao_gio_hang($gh, $ma_khach_hang);
     }
 
     function sua_gio_hang_tang($gh, $ma_khach_hang)
     {
         $m_gio_hang = new M_gio_hang();
-        $m_gio_hang->update_tang($gh, $ma_khach_hang); // update dữ liệu vào db
+        $result=$m_gio_hang->update_tang($gh, $ma_khach_hang); // update dữ liệu vào db
+        if($result === false){
+            return false;
+        }
         $gio_hang_get = $m_gio_hang->gio_hang_select($ma_khach_hang, $gh["ma_gio_hang"]); // lấy dữ liệu từ db ra
         return $gio_hang_get;
     }

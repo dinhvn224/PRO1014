@@ -9,6 +9,7 @@
             <th scope="col">Giảm giá</th>
             <th scope="col">Hình</th>
             <th scope="col">Ngày nhập</th>
+            <th scope="col">Số lượng</th>
             <th scope="col">Số lượt xem</th>
             <th scope="col">Mã loại</th>
         </tr>
@@ -24,6 +25,7 @@
             <td><?php echo $hang_hoa['giam_gia'] ?></td>
             <td><img src="public/asset/<?php echo  $hang_hoa['hinh'] ?>" height="80px" width="80px"></td>
             <td><?php echo $hang_hoa['ngay_nhap'] ?></td>
+            <td><?php echo $hang_hoa['so_luong'] ?></td>
             <td><?php echo $hang_hoa['so_luot_xem'] ?></td>
             <td>
             <?php
