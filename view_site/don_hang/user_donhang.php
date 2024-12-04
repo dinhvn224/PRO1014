@@ -37,7 +37,11 @@
                 <?php 
                     if($loai['trang_thai'] == 1){
                        ?>
+<<<<<<< HEAD
                        <td><a href="user_don_hang.php?huy_ma_don=<?php echo $loai['id_don_hang'] ?> "id="cancelButton">Hủy đơn</a></td>
+=======
+                       <td><a href="user_don_hang.php?huy_ma_don=<?php echo $loai['id_don_hang'] ?>" id="cancelButton">Hủy đơn</a></td>
+>>>>>>> 9d04fa8c006b4ebaab62f523c974c0ba80c17206
                        <?php
                     }
                     ?>
@@ -45,7 +49,12 @@
         <?php } ?>
     </tbody>
 </table>
+<<<<<<< HEAD
 <script>document.getElementById("cancelButton").addEventListener("click", function (event) {
+=======
+<script>
+document.getElementById("cancelButton").addEventListener("click", function (event) {
+>>>>>>> 9d04fa8c006b4ebaab62f523c974c0ba80c17206
     const confirmCancel = confirm("Bạn có chắc chắn muốn hủy?");
     if (confirmCancel) {
         // Hiển thị thông báo hủy thành công
