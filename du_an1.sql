@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 04, 2024 lúc 08:48 AM
+-- Thời gian đã tạo: Th12 04, 2024 lúc 09:12 AM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -134,7 +134,7 @@ CREATE TABLE `don_hang` (
 
 INSERT INTO `don_hang` (`id_don_hang`, `ma_khach_hang`, `ten_khach_hang`, `email_khach_hang`, `xa`, `huyen`, `tinh`, `sdt`, `trang_thai`, `dateOrder`) VALUES
 (35, 45, 'tú đỗ', 'tukyx77@gmail.com', 55, 5, 1, 912593001, 5, '2024-12-04 14:26:36'),
-(36, 45, 'tú đỗ', 'tukyx77@gmail.com', 2280, 135, 13, 973123456, 1, '2024-12-04 14:34:59'),
+(36, 45, 'tú đỗ', 'tukyx77@gmail.com', 2280, 135, 13, 973123456, 5, '2024-12-04 14:34:59'),
 (37, 45, 'tú đỗ', 'tukyx77@gmail.com', 3092, 182, 17, 912345678, 5, '2024-12-04 14:36:38');
 
 -- --------------------------------------------------------
@@ -183,8 +183,10 @@ INSERT INTO `hang_hoa` (`ma_hang_hoa`, `ten_hang_hoa`, `don_gia`, `giam_gia`, `h
 (20, 'Iphone 14 Pro Max', 1700000.00, 0.00, 'iPhone14-Purple-1.jpeg', '2023-10-17', 'iPad 1', 0, 24, 0, 33, 0, 3),
 (21, 'Iphone 15 Pro', 1200000.00, 0.00, 'iphone-15-promax-2_1694580533.webp', '2023-10-29', 'iPad 2', 0, 242, 0, 33, 0, 2),
 (27, 'nokia 1', 10000000.00, 1.00, 'nokia-105.jpg', '2024-11-25', 'San pham moi do', 0, 0, 0, 39, 0, 0),
-(28, 'San Pham 1', 10000.00, 199.00, '', '2024-12-12', 'San pham moi do', 0, 0, 0, 39, 1, 1),
-(29, 'Điện thoại Samsung Galaxy S24 Ultra - 5G - 12GB', 23090000.00, 0.00, 'samsung-galaxy-s24-ultra-grey-thumbnew-600x600.jpg', '2024-10-09', 'Samsung S24 Ultra giữ nguyên nét đẹp tinh tế của phiên bản tiền nhiệm. Bốn góc vuông vắn bo cong đôi chút tạo nên sự uyển chuyển mềm mại. Chất liệu Titanium nổi lên thành xu hướng mới các dòng điện thoại trong năm 2023, dẫn đầu là chiếc iPhone 15 Pro & Pro Max. Độ bền cao, trọng lượng nhẹ và nhiều đặc tính ưu việt, S24 Ultra 12/256GB được gia công tỉ mỉ với Titanium. Mặt lưng kính nhám mang đến diện mạo đẳng cấp, thời thượng.  Samsung Galaxy S24 Ultra  Samsung trang bị 4 màu sắc dành cho chiếc máy này gồm: Titanium Black, Titanium Gray, Titanium Violet, Titanium Yellow. Ngoài ra, Samsung Galaxy S24 Ultra đạt chứng nhận IP68 chống bụi, kháng nước ở độ sâu 1.5 m. Người dùng có thể an tâm sử dụng khi luyện tập hay trong điều kiện ẩm ướt, trời mưa, …  1.2. Màn hình hiển thị sắc nét  Samsung S24 Ultra Ram 12GB 256GB tích hợp tấm nền Dynamic LTPO AMOLED 2X, độ phân giải 1440 x 3120p. Màn hình 6.8 inch đem đến không gian hiển thị vô cùng thoải mái, quan sát dễ dàng, làm việc tiện lợi. Tần số quét 120Hz tạo nên chuyển động khung hình mượt mà khi chuyển tab hay giải trí trò chơi FPS cao.  Samsung Galaxy S24 Ultra  Tính năng HDR10+ với khả năng tái tạo màu sắc ấn tượng, độ tương phản cao. Độ sáng nâng cấp rõ rệt đến 2600nits giúp người dùng có thể dễ dàng theo dõi, quan sát trong điều kiện ánh sáng mạnh. Chưa dừng lại, Samsung còn nâng tầm trải nghiệm với 2 tính năng công nghệ độc đáo:   - Ray tracing: Công nghệ dò tia đình đám trên thị trường, tái tạo môi trường chân thực đem đến phút giây giải trí tựa game đỉnh cao.   - Vision Booster: Tối ưu hóa màu sắc và độ tương phản, làm cho mọi chi tiết trên màn hình trở nên sống động và rõ ràng hơn.  Samsung Galaxy S24 Ultra  Để bảo vệ khỏi tác động và trầy xước trong quá trình sử dụng, Samsung sử dụng lớp kính cường lực Corning Gorilla gia cố. Tính năng Always On Display giúp người dùng quan sát nội dung mà không cần đánh thức màn hình. Dù là một tính năng cao cấp nhưng chúng lại rất hao pin nên người dùng có thể cân nhắc tắt khi không cần thiết', 0, 0, 0, 33, 0, 3);
+(29, 'Điện thoại Samsung Galaxy S24 Ultra - 5G - 12GB', 23090000.00, 0.00, 'samsung-galaxy-s24-ultra-grey-thumbnew-600x600.jpg', '2024-10-09', 'Samsung S24 Ultra giữ nguyên nét đẹp tinh tế của phiên bản tiền nhiệm. Bốn góc vuông vắn bo cong đôi chút tạo nên sự uyển chuyển mềm mại. Chất liệu Titanium nổi lên thành xu hướng mới các dòng điện thoại trong năm 2023, dẫn đầu là chiếc iPhone 15 Pro & Pro Max. Độ bền cao, trọng lượng nhẹ và nhiều đặc tính ưu việt, S24 Ultra 12/256GB được gia công tỉ mỉ với Titanium. Mặt lưng kính nhám mang đến diện mạo đẳng cấp, thời thượng.  Samsung Galaxy S24 Ultra  Samsung trang bị 4 màu sắc dành cho chiếc máy này gồm: Titanium Black, Titanium Gray, Titanium Violet, Titanium Yellow. Ngoài ra, Samsung Galaxy S24 Ultra đạt chứng nhận IP68 chống bụi, kháng nước ở độ sâu 1.5 m. Người dùng có thể an tâm sử dụng khi luyện tập hay trong điều kiện ẩm ướt, trời mưa, …  1.2. Màn hình hiển thị sắc nét  Samsung S24 Ultra Ram 12GB 256GB tích hợp tấm nền Dynamic LTPO AMOLED 2X, độ phân giải 1440 x 3120p. Màn hình 6.8 inch đem đến không gian hiển thị vô cùng thoải mái, quan sát dễ dàng, làm việc tiện lợi. Tần số quét 120Hz tạo nên chuyển động khung hình mượt mà khi chuyển tab hay giải trí trò chơi FPS cao.  Samsung Galaxy S24 Ultra  Tính năng HDR10+ với khả năng tái tạo màu sắc ấn tượng, độ tương phản cao. Độ sáng nâng cấp rõ rệt đến 2600nits giúp người dùng có thể dễ dàng theo dõi, quan sát trong điều kiện ánh sáng mạnh. Chưa dừng lại, Samsung còn nâng tầm trải nghiệm với 2 tính năng công nghệ độc đáo:   - Ray tracing: Công nghệ dò tia đình đám trên thị trường, tái tạo môi trường chân thực đem đến phút giây giải trí tựa game đỉnh cao.   - Vision Booster: Tối ưu hóa màu sắc và độ tương phản, làm cho mọi chi tiết trên màn hình trở nên sống động và rõ ràng hơn.  Samsung Galaxy S24 Ultra  Để bảo vệ khỏi tác động và trầy xước trong quá trình sử dụng, Samsung sử dụng lớp kính cường lực Corning Gorilla gia cố. Tính năng Always On Display giúp người dùng quan sát nội dung mà không cần đánh thức màn hình. Dù là một tính năng cao cấp nhưng chúng lại rất hao pin nên người dùng có thể cân nhắc tắt khi không cần thiết', 0, 0, 0, 38, 0, 3),
+(30, 'Huawei Nova 13', 9990000.00, 0.00, 'huawei-nova-13---den_1729833654.jpg.jpg', '2024-11-20', 'Huawei Nova 13 là chiếc smartphone mới, hấp dẫn dành cho người dùng. Máy trang bị chip Kirin 8000 cho hiệu năng tốt, thiết kế đẹp và camera chụp ảnh ấn tượng. Ngay sau đây, mời bạn cùng Dienthoaihay tìm hiểu chi tiết thông số cấu tạo trên máy nhé!', 0, 0, 0, 41, 0, 5),
+(31, 'OPPO Find X8 5G 16GB', 22990000.00, 0.00, 'oppo-find-x8-black-thumb-600x600.jpg', '2024-11-19', 'OPPO Find X8 là biểu tượng của sự tinh xảo và sang trọng. Thiết bị sở hữu phong cách vuông vức, mạnh mẽ với khung viền từ hợp kim nhôm hàng không cao cấp, tạo nên vẻ ngoài cứng cáp nhưng đầy thanh lịch. Điểm nhấn nổi bật là thiết kế viền vũ trụ với các điểm sáng lấp lánh ở cụm camera, kết hợp hài hòa với logo Hasselblad được khắc tỉ mỉ, tạo nên nét đẹp cân đối, vừa độc đáo, vừa đẳng cấp.', 0, 0, 0, 33, 1, 3),
+(32, 'OPPO Find X8', 20000000.00, 0.00, 'oppo-find-x8-black-thumb-600x600.jpg', '2024-11-20', 'OPPO Find X8 là biểu tượng của sự tinh xảo và sang trọng. Thiết bị sở hữu phong cách vuông vức, mạnh mẽ với khung viền từ hợp kim nhôm hàng không cao cấp, tạo nên vẻ ngoài cứng cáp nhưng đầy thanh lịch. Điểm nhấn nổi bật là thiết kế viền vũ trụ với các điểm sáng lấp lánh ở cụm camera, kết hợp hài hòa với logo Hasselblad được khắc tỉ mỉ, tạo nên nét đẹp cân đối, vừa độc đáo, vừa đẳng cấp.', 0, 0, 0, 40, 0, 5);
 
 -- --------------------------------------------------------
 
@@ -11843,25 +11845,25 @@ ALTER TABLE `color`
 -- AUTO_INCREMENT cho bảng `ct_don_hang`
 --
 ALTER TABLE `ct_don_hang`
-  MODIFY `id_ct_don_hang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_ct_don_hang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT cho bảng `don_hang`
 --
 ALTER TABLE `don_hang`
-  MODIFY `id_don_hang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id_don_hang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT cho bảng `gio_hang`
 --
 ALTER TABLE `gio_hang`
-  MODIFY `id_gio_hang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=169;
+  MODIFY `id_gio_hang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=170;
 
 --
 -- AUTO_INCREMENT cho bảng `hang_hoa`
 --
 ALTER TABLE `hang_hoa`
-  MODIFY `ma_hang_hoa` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `ma_hang_hoa` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT cho bảng `hoi_thoai`
