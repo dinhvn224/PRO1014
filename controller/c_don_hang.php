@@ -34,6 +34,14 @@ class C_don_hang{
         $view = "view/don_hang/v_chi_tiet_don_hang.php";
         include("view_site/layout/index.php");
     }
+    function chitietdonhang1($id){
+        $m_don_hang = new M_don_hang();
+        $chi_tiet_don_hang=$m_don_hang->chi_tiet_don_hang($id);
+        $title = 'Chi tiết đơn hàng';
+
+        $view = "view/don_hang/v_chi_tiet_don_hang.php";
+        include("view/layout/index.php");
+    }
     function xoadonhang($id_don_hang){
         $m_don_hang = new M_don_hang();
         $xoa_don_hang=$m_don_hang->xoa_don_hang($id_don_hang);
@@ -41,6 +49,12 @@ class C_don_hang{
         $title = 'Đơn hàng';
         $view = "view/don_hang/v_quan_ly_don_hang.php";
         include("view_site/layout/index.php");
+    }
+    function xoadonhang1($id_don_hang){
+        $m_don_hang = new M_don_hang();
+        $xoa_don_hang=$m_don_hang->xoa_don_hang($id_don_hang);
+        $get_all_don_hang=$m_don_hang->get_all_don_hang();
+        header("Location: user_don_hang.php");
     }
     function quan_ly_don_hang_user($id){
         $m_don_hang = new M_don_hang();

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 29, 2024 lúc 09:20 AM
+-- Thời gian đã tạo: Th12 04, 2024 lúc 08:48 AM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -105,8 +105,9 @@ CREATE TABLE `ct_don_hang` (
 --
 
 INSERT INTO `ct_don_hang` (`id_ct_don_hang`, `hang_hoa_id`, `color_id`, `capacity_id`, `so_luong`, `id_don_hang`, `tong_ct`) VALUES
-(16, 20, 1, 1, 2, 28, 3400000),
-(17, 20, 1, 1, 1, 29, 1700000);
+(25, 20, 1, 1, 1, 35, 1700000),
+(26, 29, 3, 1, 1, 36, 23090000),
+(27, 21, 5, 1, 2, 37, 2400000);
 
 -- --------------------------------------------------------
 
@@ -123,16 +124,18 @@ CREATE TABLE `don_hang` (
   `huyen` int(10) NOT NULL,
   `tinh` int(10) NOT NULL,
   `sdt` int(10) NOT NULL,
-  `trang_thai` tinyint(4) NOT NULL
+  `trang_thai` tinyint(4) NOT NULL,
+  `dateOrder` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `don_hang`
 --
 
-INSERT INTO `don_hang` (`id_don_hang`, `ma_khach_hang`, `ten_khach_hang`, `email_khach_hang`, `xa`, `huyen`, `tinh`, `sdt`, `trang_thai`) VALUES
-(28, 45, 'tú', 'tukyx77@gmail.com', 16, 2, 1, 213455667, 1),
-(29, 45, 'tú', 'tukyx77@gmail.com', 27, 2, 1, 912593001, 1);
+INSERT INTO `don_hang` (`id_don_hang`, `ma_khach_hang`, `ten_khach_hang`, `email_khach_hang`, `xa`, `huyen`, `tinh`, `sdt`, `trang_thai`, `dateOrder`) VALUES
+(35, 45, 'tú đỗ', 'tukyx77@gmail.com', 55, 5, 1, 912593001, 5, '2024-12-04 14:26:36'),
+(36, 45, 'tú đỗ', 'tukyx77@gmail.com', 2280, 135, 13, 973123456, 1, '2024-12-04 14:34:59'),
+(37, 45, 'tú đỗ', 'tukyx77@gmail.com', 3092, 182, 17, 912345678, 5, '2024-12-04 14:36:38');
 
 -- --------------------------------------------------------
 
@@ -167,19 +170,21 @@ CREATE TABLE `hang_hoa` (
   `so_luot_xem` int(11) NOT NULL DEFAULT 0,
   `da_ban` int(11) NOT NULL DEFAULT 0,
   `ma_loai` int(10) DEFAULT NULL,
-  `an_hang_hoa` tinyint(4) NOT NULL DEFAULT 0
+  `an_hang_hoa` tinyint(4) NOT NULL DEFAULT 0,
+  `so_luong` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `hang_hoa`
 --
 
-INSERT INTO `hang_hoa` (`ma_hang_hoa`, `ten_hang_hoa`, `don_gia`, `giam_gia`, `hinh`, `ngay_nhap`, `mo_ta`, `dac_biet`, `so_luot_xem`, `da_ban`, `ma_loai`, `an_hang_hoa`) VALUES
-(19, 'Iphone 15 Pro Max', 22000000.00, 0.00, '15-pro-max-xanh-2.png', '2023-10-11', 'Phone 15 Pro Max nổi bật với màn hình lớn 6.7 inch, khung viền titan sang trọng và khả năng zoom quang học 5x độc quyền, mang lại trải nghiệm chụp ảnh ấn tượng. Được trang bị chip A17 Pro mạnh mẽ, thiết bị đáp ứng mọi tác vụ mượt mà, từ chơi game đến chỉnh sửa video. Cổng USB-C cải tiến tăng tốc độ truyền dữ liệu, cùng thời lượng pin bền bỉ và sạc không dây MagSafe hiện đại. iPhone 15 Pro Max là lựa chọn lý tưởng cho người dùng muốn tận hưởng công nghệ đỉnh cao trên màn hình lớn.', 0, 233, 0, 33, 0),
-(20, 'Iphone 14 Pro Max', 1700000.00, 0.00, 'iPhone14-Purple-1.jpeg', '2024-10-17', 'iPhone 14 Pro Max là siêu phẩm cao cấp từ Apple, nổi bật với thiết kế sang trọng và hiệu năng vượt trội. Máy được trang bị màn hình Super Retina XDR 6.7 inch với công nghệ ProMotion 120Hz, mang đến trải nghiệm hiển thị mượt mà và sắc nét. Đặc biệt, tính năng Dynamic Island thay thế notch truyền thống, tạo ra một cách tương tác hoàn toàn mới và hiện đại.  Sức mạnh của iPhone 14 Pro Max đến từ chip A16 Bionic, đảm bảo khả năng xử lý nhanh chóng, tiết kiệm năng lượng và đáp ứng mọi nhu cầu từ chơi game, làm việc đến chỉnh sửa ảnh, video.  Hệ thống camera nâng cấp với cảm biến chính 48MP, hỗ trợ chụp ảnh chi tiết cao, quay video 4K chuyên nghiệp. Chế độ Action Mode và Cinematic Mode mang đến trải nghiệm quay phim ổn định và chất lượng như máy ảnh chuyên nghiệp.  Dung lượng pin ấn tượng giúp người dùng thoải mái sử dụng cả ngày, cùng với sạc MagSafe và khả năng chống nước, bụi chuẩn IP68, iPhone 14 Pro Max là sự lựa chọn hoàn hảo cho người yêu công nghệ và đòi hỏi sự cao cấp trong từng chi tiết.', 0, 24, 0, 33, 0),
-(21, 'Iphone 15 Pro', 1200000.00, 0.00, 'ip15.webp', '2023-10-29', 'iPhone 15 Pro là siêu phẩm với thiết kế khung viền titan siêu nhẹ, màn hình 6.1 inch và viền mỏng tinh tế. Sức mạnh từ chip A17 Pro trên tiến trình 3nm mang đến hiệu năng vượt trội, tiết kiệm năng lượng tối ưu. Camera chính 48MP chụp ảnh sắc nét, sống động, trong khi cổng USB-C mới giúp kết nối nhanh chóng và tiện lợi. Với dung lượng pin ấn tượng và tính năng sạc MagSafe, iPhone 15 Pro là sự lựa chọn hoàn hảo cho những ai yêu thích sự gọn nhẹ nhưng không kém phần mạnh mẽ.', 0, 242, 0, 33, 0),
-(27, 'Nokia 105 4G Pro', 680000.00, 0.00, 'nokia-105-4g-den-thumb-600x600.jpg', '2024-11-25', 'Nokia 105 4G Pro là chiếc điện thoại cơ bản, bền bỉ, được thiết kế dành cho người dùng cần một thiết bị gọn nhẹ, dễ sử dụng, nhưng vẫn hỗ trợ công nghệ hiện đại. Với thiết kế nhỏ gọn, vỏ ngoài chắc chắn, máy mang lại sự tiện lợi và độ bền cao.  Điểm nổi bật của sản phẩm là khả năng hỗ trợ mạng 4G, giúp kết nối ổn định và nhanh chóng. Màn hình 1.8 inch TFT hiển thị rõ ràng, cùng bàn phím T9 truyền thống dễ thao tác, phù hợp cho cả người lớn tuổi. Máy có tính năng gọi điện qua VoLTE, mang lại chất lượng âm thanh trong trẻo.  Pin dung lượng cao cho phép thời gian sử dụng lâu dài, lý tưởng cho nhu cầu liên lạc hàng ngày. Nokia 105 4G Pro còn tích hợp đài FM, đèn pin và các trò chơi cơ bản, đáp ứng đầy đủ nhu cầu giải trí cơ bản. Đây là lựa chọn tuyệt vời cho người tìm kiếm sự đơn giản nhưng vẫn cần các tính năng hiện đại.', 0, 0, 0, 39, 0),
-(28, 'Điện thoại Samsung Galaxy S24 Ultra 5G 12GB/256GB', 24990000.00, 0.00, 'samsung-galaxy-s24-ultra-grey-thumbnew-600x600.jpg', '2024-11-20', 'Samsung Galaxy S24 Ultra 5G 12GB/256GB là siêu phẩm mới nhất từ Samsung, mang đến sự kết hợp hoàn hảo giữa thiết kế sang trọng và công nghệ tiên tiến. Điện thoại sở hữu màn hình Dynamic AMOLED 2X 6.8 inch sắc nét, hỗ trợ tần số quét 120Hz, cho trải nghiệm hiển thị mượt mà và chân thực.  Máy được trang bị vi xử lý mạnh mẽ Snapdragon 8 Gen 3 (hoặc Exynos 2400 tùy khu vực), cùng 12GB RAM, giúp xử lý mượt mà mọi tác vụ từ công việc đến giải trí. Bộ nhớ trong 256GB cung cấp không gian lưu trữ rộng rãi cho dữ liệu và ứng dụng.  Camera chính 200MP đỉnh cao, đi kèm các cảm biến phụ đa năng, cho phép chụp ảnh chuyên nghiệp ngay cả trong điều kiện thiếu sáng. Công nghệ 5G tiên tiến giúp kết nối mạng siêu tốc, hỗ trợ mọi nhu cầu làm việc và giải trí trực tuyến.  Dung lượng pin lớn 5000mAh với sạc nhanh 45W đảm bảo thời gian sử dụng dài lâu, đáp ứng nhu cầu di chuyển liên tục. Samsung Galaxy S24 Ultra 5G không chỉ là một chiếc điện thoại, mà còn là người bạn đồng hành công nghệ đẳng cấp cho cuộc sống hiện đại.', 0, 0, 0, 38, 0);
+INSERT INTO `hang_hoa` (`ma_hang_hoa`, `ten_hang_hoa`, `don_gia`, `giam_gia`, `hinh`, `ngay_nhap`, `mo_ta`, `dac_biet`, `so_luot_xem`, `da_ban`, `ma_loai`, `an_hang_hoa`, `so_luong`) VALUES
+(19, 'Iphone 15 Pro Max', 1100000.00, 0.00, '15-pro-max-xanh-2.png', '2023-10-11', 'Phone 15 Pro Max: Siêu phẩm với thiết kế khung titan sang trọng, màn hình Super Retina XDR 6.7 inch sắc nét, chip A17 Pro hiệu suất vượt trội, và hệ thống camera 48MP hỗ trợ zoom quang 5x, mang đến trải nghiệm đẳng cấp trong mọi khía cạnh.', 0, 233, 0, 33, 0, 3),
+(20, 'Iphone 14 Pro Max', 1700000.00, 0.00, 'iPhone14-Purple-1.jpeg', '2023-10-17', 'iPad 1', 0, 24, 0, 33, 0, 3),
+(21, 'Iphone 15 Pro', 1200000.00, 0.00, 'iphone-15-promax-2_1694580533.webp', '2023-10-29', 'iPad 2', 0, 242, 0, 33, 0, 2),
+(27, 'nokia 1', 10000000.00, 1.00, 'nokia-105.jpg', '2024-11-25', 'San pham moi do', 0, 0, 0, 39, 0, 0),
+(28, 'San Pham 1', 10000.00, 199.00, '', '2024-12-12', 'San pham moi do', 0, 0, 0, 39, 1, 1),
+(29, 'Điện thoại Samsung Galaxy S24 Ultra - 5G - 12GB', 23090000.00, 0.00, 'samsung-galaxy-s24-ultra-grey-thumbnew-600x600.jpg', '2024-10-09', 'Samsung S24 Ultra giữ nguyên nét đẹp tinh tế của phiên bản tiền nhiệm. Bốn góc vuông vắn bo cong đôi chút tạo nên sự uyển chuyển mềm mại. Chất liệu Titanium nổi lên thành xu hướng mới các dòng điện thoại trong năm 2023, dẫn đầu là chiếc iPhone 15 Pro & Pro Max. Độ bền cao, trọng lượng nhẹ và nhiều đặc tính ưu việt, S24 Ultra 12/256GB được gia công tỉ mỉ với Titanium. Mặt lưng kính nhám mang đến diện mạo đẳng cấp, thời thượng.  Samsung Galaxy S24 Ultra  Samsung trang bị 4 màu sắc dành cho chiếc máy này gồm: Titanium Black, Titanium Gray, Titanium Violet, Titanium Yellow. Ngoài ra, Samsung Galaxy S24 Ultra đạt chứng nhận IP68 chống bụi, kháng nước ở độ sâu 1.5 m. Người dùng có thể an tâm sử dụng khi luyện tập hay trong điều kiện ẩm ướt, trời mưa, …  1.2. Màn hình hiển thị sắc nét  Samsung S24 Ultra Ram 12GB 256GB tích hợp tấm nền Dynamic LTPO AMOLED 2X, độ phân giải 1440 x 3120p. Màn hình 6.8 inch đem đến không gian hiển thị vô cùng thoải mái, quan sát dễ dàng, làm việc tiện lợi. Tần số quét 120Hz tạo nên chuyển động khung hình mượt mà khi chuyển tab hay giải trí trò chơi FPS cao.  Samsung Galaxy S24 Ultra  Tính năng HDR10+ với khả năng tái tạo màu sắc ấn tượng, độ tương phản cao. Độ sáng nâng cấp rõ rệt đến 2600nits giúp người dùng có thể dễ dàng theo dõi, quan sát trong điều kiện ánh sáng mạnh. Chưa dừng lại, Samsung còn nâng tầm trải nghiệm với 2 tính năng công nghệ độc đáo:   - Ray tracing: Công nghệ dò tia đình đám trên thị trường, tái tạo môi trường chân thực đem đến phút giây giải trí tựa game đỉnh cao.   - Vision Booster: Tối ưu hóa màu sắc và độ tương phản, làm cho mọi chi tiết trên màn hình trở nên sống động và rõ ràng hơn.  Samsung Galaxy S24 Ultra  Để bảo vệ khỏi tác động và trầy xước trong quá trình sử dụng, Samsung sử dụng lớp kính cường lực Corning Gorilla gia cố. Tính năng Always On Display giúp người dùng quan sát nội dung mà không cần đánh thức màn hình. Dù là một tính năng cao cấp nhưng chúng lại rất hao pin nên người dùng có thể cân nhắc tắt khi không cần thiết', 0, 0, 0, 33, 0, 3);
 
 -- --------------------------------------------------------
 
@@ -222,12 +227,10 @@ CREATE TABLE `khach_hang` (
 --
 
 INSERT INTO `khach_hang` (`ma_khach_hang`, `mat_khau`, `ho_ten`, `hinh`, `email`, `vai_tro`, `an`) VALUES
-(33, '$2y$12$RL2pPGZRD0JvpZoEGteSa.tfHvTZ4tISjPaBc3KnsHiCYF8Q/Rhay', 'admin', NULL, 'tu1@gmail.com', 1, 0),
-(45, '$2y$12$hp3AM48Z.9Uk7A0QM4Njo.4BaknROV4dCO7r2fgBfvylX8yF0ECCe', 'tú', NULL, 'tukyx77@gmail.com', 0, 0),
-(46, '$2y$12$PQmzRUhTEBsF6utjp4MGHuvPyMtJJ.tZQSmpUKq0rukmZ72kKk7Ni', 'tú đỗ', NULL, 'tukyx771@gmail.com', 1, 0),
-(47, '$2y$12$ldWZegzvZ1UwDV0nRNOhZu.5FZa2yAI5mIYUQetPFpmqoWW15yRWu', 'Mạnh ', NULL, 'manh123@gmail.com', 0, 0),
-(48, '$2y$12$YS247Q/i87eyvcKx8aa0SOCz1ZhI0Xszk2wlk4423kKuXyj3WqQ5i', 'Anh Ngọc', NULL, 'ngocpdph32840@fpt.edu.vn', 0, 0),
-(49, '$2y$12$KCoGV8.INV7/ZvlJcYroKezSn9OpRgmKZZKydyVTKLtc6UIGyXAky', 'Tú 1', NULL, 'tu1@gmail.com', 0, 0);
+(45, '$2y$12$KcoU1ekT21V8t/ZhaKhBw.oWMh1KZS1Y8vZgOBHW4hQ3uRRJLRfC.', 'tú đỗ', NULL, 'tukyx77@gmail.com', 0, 0),
+(46, '$2y$12$RZLIsMrM3tlyFdB3x8L9b.Mz2tKEaQz1iyQ2y7OLR1bBiDr0RhiDa', 'tus 1', NULL, 'tukyx771@gmail.com', 1, 0),
+(47, '$2y$12$8k/BHdrA40RTcwePRseezObKkwnMiv2uSNz/c1Ikr5GxEh3zlCS/a', 'Nguyễn Ngọc', NULL, 'ngocnv@gmail.com', 0, 0),
+(48, '$2y$12$rf8Ci6eND419hRYvM29wnOWVEAwHTNjUajBNTXrst.wtHY3j4M7GK', 'Mạnh ', NULL, 'manh123@gmail.com', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -11840,25 +11843,25 @@ ALTER TABLE `color`
 -- AUTO_INCREMENT cho bảng `ct_don_hang`
 --
 ALTER TABLE `ct_don_hang`
-  MODIFY `id_ct_don_hang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_ct_don_hang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT cho bảng `don_hang`
 --
 ALTER TABLE `don_hang`
-  MODIFY `id_don_hang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_don_hang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT cho bảng `gio_hang`
 --
 ALTER TABLE `gio_hang`
-  MODIFY `id_gio_hang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=154;
+  MODIFY `id_gio_hang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=169;
 
 --
 -- AUTO_INCREMENT cho bảng `hang_hoa`
 --
 ALTER TABLE `hang_hoa`
-  MODIFY `ma_hang_hoa` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `ma_hang_hoa` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT cho bảng `hoi_thoai`
@@ -11870,7 +11873,7 @@ ALTER TABLE `hoi_thoai`
 -- AUTO_INCREMENT cho bảng `khach_hang`
 --
 ALTER TABLE `khach_hang`
-  MODIFY `ma_khach_hang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `ma_khach_hang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT cho bảng `loai_hang`

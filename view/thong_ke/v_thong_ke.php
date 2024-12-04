@@ -1,3 +1,8 @@
+<form id="monthYearForm" action="" method="POST">
+    <label for="monthPicker">Chọn tháng và năm:</label>
+    <input type="month" id="monthPicker" name="month" required>
+    <button type="submit" name="month-year-btn">Xác nhận</button>
+</form>
 <table class="table">
     <thead>
         <tr>
@@ -29,7 +34,17 @@
 
     </tbody>
 </table>
-<label for="">Đơn hàng</label>
+<?php
+    if(isset($_POST['month'])){
+        $date = DateTime::createFromFormat('Y-m', $_POST['month']);
+        $year = $date->format('Y'); 
+        $month = $date->format('m'); 
+        echo'<label for="">Thống kê đơn hàng trong tháng '.$month.' năm '.$year.'</label>';
+    }else{
+        echo'<label for="">Thống kê đơn hàng toàn thời gian</label>';
+    }
+?>
+
 <table class="table">
     <thead>
         <tr>

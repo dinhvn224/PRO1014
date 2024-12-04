@@ -29,10 +29,11 @@ class M_hang_hoa extends database
         $hinh,
         $ngay_nhap,
         $mo_ta,
-        $ma_loai
+        $ma_loai,
+        $so_luong
     ) {
-        $sql = "INSERT INTO hang_hoa (ten_hang_hoa, don_gia, giam_gia, hinh, ngay_nhap, mo_ta, ma_loai) 
-    VALUES ('$ten_hang_hoa', $don_gia, $giam_gia, '$hinh', '$ngay_nhap', '$mo_ta', '$ma_loai')";
+        $sql = "INSERT INTO hang_hoa (ten_hang_hoa, don_gia, giam_gia, hinh, ngay_nhap, mo_ta, ma_loai,so_luong) 
+    VALUES ('$ten_hang_hoa', $don_gia, $giam_gia, '$hinh', '$ngay_nhap', '$mo_ta', '$ma_loai',$so_luong)";
         $this->pdo_execute($sql);
     }
     function hang_hoa_select_by_id($ma_hang_hoa)
@@ -53,12 +54,13 @@ class M_hang_hoa extends database
         $hinh,
         $ngay_nhap,
         $mo_ta,
-        $ma_loai
+        $ma_loai,
+        $so_luong
 
 
     ) {
 
-        $sql = "UPDATE hang_hoa SET ten_hang_hoa = ?, don_gia = ?, giam_gia = ?, hinh = ?, ngay_nhap = ?, mo_ta = ?, ma_loai =? WHERE ma_hang_hoa = ? ";
+        $sql = "UPDATE hang_hoa SET ten_hang_hoa = ?, don_gia = ?, giam_gia = ?, hinh = ?, ngay_nhap = ?, mo_ta = ?, ma_loai =?, so_luong =? WHERE ma_hang_hoa = ? ";
         $this->pdo_execute(
             $sql,
             $ten_hang_hoa,
@@ -68,7 +70,8 @@ class M_hang_hoa extends database
             $ngay_nhap,
             $mo_ta,
             $ma_loai,
-            $ma_hang_hoa
+            $so_luong,
+            $ma_hang_hoa,
         );
     }
 

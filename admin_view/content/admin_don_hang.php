@@ -25,14 +25,20 @@
                         <td><?php
                             switch ($val['trang_thai']) {
                                 case 1:
-                                    echo '<span class="alert alert-danger d-block w-75">Đang xử lý</span>';
+                                    echo '<span class="alert alert-danger d-block w-75">Chờ xác nhận</span>';
                                     break;
                                 case 2:
-                                    echo '<span class="alert alert-info d-block w-75">Đang giao hàng</span>';
+                                    echo '<span class="alert alert-info d-block w-75">Đã xác nhận</span>';
                                     break;
                                 case 3:
-                                    echo '<span class="alert alert-success d-block w-75">Giao hàng thành công</span>';
+                                    echo '<span class="alert alert-primary d-block w-75">Đang vận chuyển</span>';
                                     break;
+                                    case 4:
+                                        echo '<span class="alert alert-success d-block w-75">Giao hàng thành công</span>';
+                                        break;
+                                        case 5:
+                                            echo '<span class="alert alert-success d-block w-75">Hoàn thành</span>';
+                                            break;
                             } ?></td>
 
                         <td>
@@ -77,24 +83,53 @@
                                             <?php
                                             switch ($val['trang_thai']) {
                                                 case 1:
-                                                    echo '<span class="alert alert-danger my-2">Đang xử lý</span>';
+                                                    echo '<span class="alert alert-danger my-2">Chờ xác nhận</span>';
                                                     break;
                                                 case 2:
-                                                    echo '<span class="alert alert-info my-2">Đang giao hàng</span>';
+                                                    echo '<span class="alert alert-info my-2">Đã xác nhận</span>';
                                                     break;
                                                 case 3:
-                                                    echo '<span class="alert alert-success my-2">Giao hàng thành công</span>';
+                                                    echo '<span class="alert alert-primary my-2">Đang vận chuyển</span>';
                                                     break;
+                                                    case 4:
+                                                        echo '<span class="alert alert-success my-2">Giao hàng thành công</span>';
+                                                        break;
+                                                        case 5:
+                                                            echo '<span class="alert alert-success my-2">Hoàn thành</span>';
+                                                            break;
                                             } ?>
                                             Thay đổi tình trạng đơn hàng
                                             <form action="" method="POST" class="form mt-1">
                                                 <select name="status<?= $val['id_don_hang'] ?>" class="form-select form-select-lg mb-3 form-control" aria-label="Large select example">
-                                                    <option selected value="1">Đang xử lý</option>
-                                                    <option value="2">Đang giao hàng</option>
-                                                    <option value="3">Giao hàng thành công</option>
+                                                        <?php
+                                                        switch ($val['trang_thai']) {
+                                                            case 1:
+                                                                echo '<option value="2">Đã xác nhận</option>
+                                                    <option value="3">Đang vận chuyển</option>
+                                                    <option value="4">Giao hàng thành công</option>
+                                                    <option value="5">Hoàn thành</option>';
+                                                                break;
+                                                            case 2:
+                                                                echo '<option value="3">Đang vận chuyển</option>
+                                                    <option value="4">Giao hàng thành công</option>
+                                                    <option value="5">Hoàn thành</option>';
+                                                                break;
+                                                            case 3:
+                                                                echo '<option value="4">Giao hàng thành công</option>
+                                                    <option value="5">Hoàn thành</option>';
+                                                                break;
+                                                                case 4:
+                                                                    echo '<option value="5">Hoàn thành</option>';
+                                                                    break;
+                                                                    case 5:
+                                                                        echo '';
+                                                                        break;
+                                                        } ?>
+                                                    
                                                 </select>
                                                 <input value="Xác nhận thay đổi ?" type="submit" class="btn btn-primary" name="btn<?= $val['id_don_hang'] ?>">
                                                 <input value="Xóa đơn hàng ?" type="submit" class="btn btn-danger" name="del<?= $val['id_don_hang'] ?>">
+                                                <a href="don_hang.php?ma_don=<?php echo $val['id_don_hang'] ?>" class="btn btn-danger">Xem đơn hàng</a>
                                             </form>
                                             <?php
                                             include_once 'model/database.php';

@@ -17,6 +17,20 @@ class C_thong_ke
         $view = "view/thong_ke/v_thong_ke.php";
         include("view/layout/index.php");
     }
+    function hienthimanhinh1($data)
+    {
+        $date = DateTime::createFromFormat('Y-m', $data);
+        $year = $date->format('Y'); 
+        $month = $date->format('m'); 
+        // gọi và db lấy dữ liệux
+        $m_thong_ke = new M_thong_ke();
+        $thong_ke = $m_thong_ke->thong_ke();
+        $getorder=$m_thong_ke->getorder1($month,$year);
+        $getorder_minmax=$m_thong_ke->getorder_minmax1($month,$year);
+        $title = 'Thống kê';
+        $view = "view/thong_ke/v_thong_ke.php";
+        include("view/layout/index.php");
+    }
     function xem_thong_ke()
     {
         // gọi và db lấy dữ liệux

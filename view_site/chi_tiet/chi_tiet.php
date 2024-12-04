@@ -3,7 +3,7 @@
 ?>
 
 <div id="popup" style="transform : translate(-50%, -50%); display: none; " class="position-fixed top-50 start-50 alert alert-info">
-    Đặt hàng thành công
+   Thêm vào giỏ hàng thành công
 </div>
 
 <?php
@@ -350,13 +350,14 @@ if (isset($_SESSION['id'])) { ?>
             url: "gio_hang.php", // Đường dẫn tới tệp gio_hang.php
             method: "POST",
             data: dataToSend,
-            success: function(data) {
-
-                // Hiển thị popup
-                $("#popup").hide();
-
-         
-                excutePopup();
+            success: function(response) {
+            var data = JSON.parse(response); 
+        if (data.status === "error") {
+            alert("Sản phẩm này đã hết hàng.");
+        } else if (data.status === "success") {
+            $("#popup").hide();
+            excutePopup();
+        }
             }
         });
     });
