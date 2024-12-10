@@ -1,15 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
-<<<<<<<< HEAD:du_an1 (1).sql
--- Thời gian đã tạo: Th12 04, 2024 lúc 09:51 AM
-========
--- Thời gian đã tạo: Th12 04, 2024 lúc 09:12 AM
->>>>>>>> 9d04fa8c006b4ebaab62f523c974c0ba80c17206:du_an1.sql
--- Phiên bản máy phục vụ: 10.4.32-MariaDB
--- Phiên bản PHP: 8.2.12
+-- Host: localhost:3306
+-- Generation Time: Dec 10, 2024 at 03:20 PM
+-- Server version: 8.0.30
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -22,36 +18,36 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `du_an1`
+-- Database: `du_an1`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `binh_luann`
+-- Table structure for table `binh_luann`
 --
 
 CREATE TABLE `binh_luann` (
-  `ma_binh_luan` int(11) NOT NULL,
-  `noi_dung` text NOT NULL,
-  `ma_khach_hang` int(11) NOT NULL,
-  `ma_hang_hoa` int(11) NOT NULL,
-  `thuoc_binh_luan` int(11) DEFAULT NULL
+  `ma_binh_luan` int NOT NULL,
+  `noi_dung` text COLLATE utf8mb4_general_ci NOT NULL,
+  `ma_khach_hang` int NOT NULL,
+  `ma_hang_hoa` int NOT NULL,
+  `thuoc_binh_luan` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `capacity`
+-- Table structure for table `capacity`
 --
 
 CREATE TABLE `capacity` (
-  `id_capacity` int(10) NOT NULL,
-  `ten_capacity` varchar(255) NOT NULL
+  `id_capacity` int NOT NULL,
+  `ten_capacity` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `capacity`
+-- Dumping data for table `capacity`
 --
 
 INSERT INTO `capacity` (`id_capacity`, `ten_capacity`) VALUES
@@ -63,167 +59,153 @@ INSERT INTO `capacity` (`id_capacity`, `ten_capacity`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `color`
+-- Table structure for table `color`
 --
 
 CREATE TABLE `color` (
-  `id_color` int(10) NOT NULL,
-  `ten_color` varchar(255) NOT NULL,
-  `ma_mau` varchar(255) NOT NULL
+  `id_color` int NOT NULL,
+  `ten_color` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `ma_mau` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `color`
+-- Dumping data for table `color`
 --
 
 INSERT INTO `color` (`id_color`, `ten_color`, `ma_mau`) VALUES
 (1, 'Đen', '#000000'),
 (2, 'Trắng', '#FFFFFF'),
-(3, 'Xanh Dương', '#0000FF'),
-(4, 'Xanh Lá', '#00FF00'),
-(5, 'Đỏ', '#FF0000'),
 (6, 'Vàng', '#FFFF00'),
-(7, 'Bạc', '#C0C0C0'),
-(8, 'Hồng', '#FFC0CB'),
-(9, 'Tím', '#800080'),
 (10, 'Xám', '#808080');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `ct_don_hang`
+-- Table structure for table `ct_don_hang`
 --
 
 CREATE TABLE `ct_don_hang` (
-  `id_ct_don_hang` int(10) NOT NULL,
-  `hang_hoa_id` int(10) NOT NULL,
-  `color_id` int(10) NOT NULL,
-  `capacity_id` int(10) NOT NULL,
-  `so_luong` int(10) NOT NULL,
-  `id_don_hang` int(10) NOT NULL,
+  `id_ct_don_hang` int NOT NULL,
+  `hang_hoa_id` int NOT NULL,
+  `color_id` int NOT NULL,
+  `capacity_id` int NOT NULL,
+  `so_luong` int NOT NULL,
+  `id_don_hang` int NOT NULL,
   `tong_ct` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `ct_don_hang`
+-- Dumping data for table `ct_don_hang`
 --
 
 INSERT INTO `ct_don_hang` (`id_ct_don_hang`, `hang_hoa_id`, `color_id`, `capacity_id`, `so_luong`, `id_don_hang`, `tong_ct`) VALUES
-(25, 20, 1, 1, 1, 35, 1700000),
-(26, 29, 3, 1, 1, 36, 23090000),
-<<<<<<<< HEAD:du_an1 (1).sql
-(27, 21, 5, 1, 2, 37, 2400000),
-(29, 20, 1, 1, 3, 39, 5100000);
-========
-(27, 21, 5, 1, 2, 37, 2400000);
->>>>>>>> 9d04fa8c006b4ebaab62f523c974c0ba80c17206:du_an1.sql
+(30, 20, 6, 1, 2, 41, 3400000),
+(31, 19, 6, 2, 3, 42, 3300000),
+(33, 19, 6, 1, 1, 44, 3100000),
+(34, 29, 6, 1, 1, 45, 23090000),
+(35, 30, 10, 1, 2, 46, 19980000),
+(36, 32, 1, 1, 1, 47, 20000000),
+(37, 30, 10, 3, 1, 48, 9990000),
+(38, 21, 1, 1, 2, 49, 44000000);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `don_hang`
+-- Table structure for table `don_hang`
 --
 
 CREATE TABLE `don_hang` (
-  `id_don_hang` int(10) NOT NULL,
-  `ma_khach_hang` int(10) DEFAULT NULL,
-  `ten_khach_hang` varchar(399) NOT NULL,
-  `email_khach_hang` varchar(399) NOT NULL,
-  `xa` int(10) NOT NULL,
-  `huyen` int(10) NOT NULL,
-  `tinh` int(10) NOT NULL,
-  `sdt` int(10) NOT NULL,
-  `trang_thai` tinyint(4) NOT NULL,
-  `dateOrder` datetime NOT NULL DEFAULT current_timestamp()
+  `id_don_hang` int NOT NULL,
+  `ma_khach_hang` int DEFAULT NULL,
+  `ten_khach_hang` varchar(399) COLLATE utf8mb4_general_ci NOT NULL,
+  `email_khach_hang` varchar(399) COLLATE utf8mb4_general_ci NOT NULL,
+  `xa` int NOT NULL,
+  `huyen` int NOT NULL,
+  `tinh` int NOT NULL,
+  `sdt` int NOT NULL,
+  `trang_thai` tinyint NOT NULL,
+  `dateOrder` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `don_hang`
+-- Dumping data for table `don_hang`
 --
 
 INSERT INTO `don_hang` (`id_don_hang`, `ma_khach_hang`, `ten_khach_hang`, `email_khach_hang`, `xa`, `huyen`, `tinh`, `sdt`, `trang_thai`, `dateOrder`) VALUES
-(35, 45, 'tú đỗ', 'tukyx77@gmail.com', 55, 5, 1, 912593001, 5, '2024-12-04 14:26:36'),
-(36, 45, 'tú đỗ', 'tukyx77@gmail.com', 2280, 135, 13, 973123456, 5, '2024-12-04 14:34:59'),
-<<<<<<<< HEAD:du_an1 (1).sql
-(37, 45, 'tú đỗ', 'tukyx77@gmail.com', 3092, 182, 17, 912345678, 5, '2024-12-04 14:36:38'),
-(39, 45, 'tú đỗ', 'tukyx77@gmail.com', 3019, 177, 16, 912539001, 5, '2024-12-04 15:49:24');
-========
-(37, 45, 'tú đỗ', 'tukyx77@gmail.com', 3092, 182, 17, 912345678, 5, '2024-12-04 14:36:38');
->>>>>>>> 9d04fa8c006b4ebaab62f523c974c0ba80c17206:du_an1.sql
+(41, 45, 'tú đỗ', 'tukyx77@gmail.com', 2272, 134, 13, 912583001, 5, '2024-12-10 21:21:04'),
+(42, 45, 'tú đỗ', 'tukyx77@gmail.com', 2505, 146, 14, 912593001, 5, '2024-12-10 21:22:13'),
+(44, 45, 'tú đỗ', 'tukyx77@gmail.com', 2830, 166, 15, 942154798, 5, '2024-11-13 21:25:08'),
+(45, 45, 'tú đỗ', 'tukyx77@gmail.com', 1976, 116, 11, 912530111, 5, '2024-12-10 21:49:07'),
+(46, 45, 'tú đỗ', 'tukyx77@gmail.com', 3060, 179, 16, 123456786, 5, '2024-12-10 21:49:29'),
+(47, 45, 'tú đỗ', 'tukyx77@gmail.com', 28, 2, 1, 124678688, 5, '2024-08-07 00:00:00'),
+(48, 45, 'tú đỗ', 'tukyx77@gmail.com', 28, 2, 1, 912537885, 5, '2024-10-09 21:50:07'),
+(49, 45, 'tú đỗ', 'tukyx77@gmail.com', 2606, 155, 14, 912539000, 5, '2024-09-28 21:53:25');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `gio_hang`
+-- Table structure for table `gio_hang`
 --
 
 CREATE TABLE `gio_hang` (
-  `id_gio_hang` int(10) NOT NULL,
-  `ma_khach_hang` int(10) NOT NULL,
-  `ma_san_pham` int(10) NOT NULL,
-  `color_id` int(10) NOT NULL,
-  `capacity_id` int(11) NOT NULL,
-  `so_luong_san_pham` int(100) NOT NULL
+  `id_gio_hang` int NOT NULL,
+  `ma_khach_hang` int NOT NULL,
+  `ma_san_pham` int NOT NULL,
+  `color_id` int NOT NULL,
+  `capacity_id` int NOT NULL,
+  `so_luong_san_pham` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `hang_hoa`
+-- Table structure for table `hang_hoa`
 --
 
 CREATE TABLE `hang_hoa` (
-  `ma_hang_hoa` int(10) NOT NULL,
-  `ten_hang_hoa` varchar(299) NOT NULL,
+  `ma_hang_hoa` int NOT NULL,
+  `ten_hang_hoa` varchar(299) COLLATE utf8mb4_general_ci NOT NULL,
   `don_gia` double(10,2) NOT NULL,
-  `giam_gia` double(10,2) DEFAULT 0.00,
-  `hinh` varchar(299) NOT NULL,
+  `giam_gia` double(10,2) DEFAULT '0.00',
+  `hinh` varchar(299) COLLATE utf8mb4_general_ci NOT NULL,
   `ngay_nhap` date DEFAULT NULL,
-  `mo_ta` text NOT NULL,
+  `mo_ta` text COLLATE utf8mb4_general_ci NOT NULL,
   `dac_biet` tinyint(1) NOT NULL,
-  `so_luot_xem` int(11) NOT NULL DEFAULT 0,
-  `da_ban` int(11) NOT NULL DEFAULT 0,
-  `ma_loai` int(10) DEFAULT NULL,
-  `an_hang_hoa` tinyint(4) NOT NULL DEFAULT 0,
-  `so_luong` int(11) NOT NULL DEFAULT 0
+  `so_luot_xem` int NOT NULL DEFAULT '0',
+  `da_ban` int NOT NULL DEFAULT '0',
+  `ma_loai` int DEFAULT NULL,
+  `an_hang_hoa` tinyint NOT NULL DEFAULT '0',
+  `so_luong` int NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `hang_hoa`
+-- Dumping data for table `hang_hoa`
 --
 
 INSERT INTO `hang_hoa` (`ma_hang_hoa`, `ten_hang_hoa`, `don_gia`, `giam_gia`, `hinh`, `ngay_nhap`, `mo_ta`, `dac_biet`, `so_luot_xem`, `da_ban`, `ma_loai`, `an_hang_hoa`, `so_luong`) VALUES
-(19, 'Iphone 15 Pro Max', 1100000.00, 0.00, '15-pro-max-xanh-2.png', '2023-10-11', 'Phone 15 Pro Max: Siêu phẩm với thiết kế khung titan sang trọng, màn hình Super Retina XDR 6.7 inch sắc nét, chip A17 Pro hiệu suất vượt trội, và hệ thống camera 48MP hỗ trợ zoom quang 5x, mang đến trải nghiệm đẳng cấp trong mọi khía cạnh.', 0, 233, 0, 33, 0, 3),
-<<<<<<<< HEAD:du_an1 (1).sql
-(20, 'Iphone 14 Pro Max', 1700000.00, 0.00, 'iPhone14-Purple-1.jpeg', '2023-10-17', 'iPad 1', 0, 24, 0, 33, 0, 0),
-========
-(20, 'Iphone 14 Pro Max', 1700000.00, 0.00, 'iPhone14-Purple-1.jpeg', '2023-10-17', 'iPad 1', 0, 24, 0, 33, 0, 3),
->>>>>>>> 9d04fa8c006b4ebaab62f523c974c0ba80c17206:du_an1.sql
-(21, 'Iphone 15 Pro', 1200000.00, 0.00, 'iphone-15-promax-2_1694580533.webp', '2023-10-29', 'iPad 2', 0, 242, 0, 33, 0, 2),
-(27, 'nokia 1', 10000000.00, 1.00, 'nokia-105.jpg', '2024-11-25', 'San pham moi do', 0, 0, 0, 39, 0, 0),
-(29, 'Điện thoại Samsung Galaxy S24 Ultra - 5G - 12GB', 23090000.00, 0.00, 'samsung-galaxy-s24-ultra-grey-thumbnew-600x600.jpg', '2024-10-09', 'Samsung S24 Ultra giữ nguyên nét đẹp tinh tế của phiên bản tiền nhiệm. Bốn góc vuông vắn bo cong đôi chút tạo nên sự uyển chuyển mềm mại. Chất liệu Titanium nổi lên thành xu hướng mới các dòng điện thoại trong năm 2023, dẫn đầu là chiếc iPhone 15 Pro & Pro Max. Độ bền cao, trọng lượng nhẹ và nhiều đặc tính ưu việt, S24 Ultra 12/256GB được gia công tỉ mỉ với Titanium. Mặt lưng kính nhám mang đến diện mạo đẳng cấp, thời thượng.  Samsung Galaxy S24 Ultra  Samsung trang bị 4 màu sắc dành cho chiếc máy này gồm: Titanium Black, Titanium Gray, Titanium Violet, Titanium Yellow. Ngoài ra, Samsung Galaxy S24 Ultra đạt chứng nhận IP68 chống bụi, kháng nước ở độ sâu 1.5 m. Người dùng có thể an tâm sử dụng khi luyện tập hay trong điều kiện ẩm ướt, trời mưa, …  1.2. Màn hình hiển thị sắc nét  Samsung S24 Ultra Ram 12GB 256GB tích hợp tấm nền Dynamic LTPO AMOLED 2X, độ phân giải 1440 x 3120p. Màn hình 6.8 inch đem đến không gian hiển thị vô cùng thoải mái, quan sát dễ dàng, làm việc tiện lợi. Tần số quét 120Hz tạo nên chuyển động khung hình mượt mà khi chuyển tab hay giải trí trò chơi FPS cao.  Samsung Galaxy S24 Ultra  Tính năng HDR10+ với khả năng tái tạo màu sắc ấn tượng, độ tương phản cao. Độ sáng nâng cấp rõ rệt đến 2600nits giúp người dùng có thể dễ dàng theo dõi, quan sát trong điều kiện ánh sáng mạnh. Chưa dừng lại, Samsung còn nâng tầm trải nghiệm với 2 tính năng công nghệ độc đáo:   - Ray tracing: Công nghệ dò tia đình đám trên thị trường, tái tạo môi trường chân thực đem đến phút giây giải trí tựa game đỉnh cao.   - Vision Booster: Tối ưu hóa màu sắc và độ tương phản, làm cho mọi chi tiết trên màn hình trở nên sống động và rõ ràng hơn.  Samsung Galaxy S24 Ultra  Để bảo vệ khỏi tác động và trầy xước trong quá trình sử dụng, Samsung sử dụng lớp kính cường lực Corning Gorilla gia cố. Tính năng Always On Display giúp người dùng quan sát nội dung mà không cần đánh thức màn hình. Dù là một tính năng cao cấp nhưng chúng lại rất hao pin nên người dùng có thể cân nhắc tắt khi không cần thiết', 0, 0, 0, 38, 0, 3),
-(30, 'Huawei Nova 13', 9990000.00, 0.00, 'huawei-nova-13---den_1729833654.jpg.jpg', '2024-11-20', 'Huawei Nova 13 là chiếc smartphone mới, hấp dẫn dành cho người dùng. Máy trang bị chip Kirin 8000 cho hiệu năng tốt, thiết kế đẹp và camera chụp ảnh ấn tượng. Ngay sau đây, mời bạn cùng Dienthoaihay tìm hiểu chi tiết thông số cấu tạo trên máy nhé!', 0, 0, 0, 41, 0, 5),
-<<<<<<<< HEAD:du_an1 (1).sql
-(33, 'Oppo Find X8', 20000000.00, 0.00, 'oppo-find-x8-black-thumb-600x600.jpg', '2024-11-11', 'Mang tới những trải nghiệm di động vượt trội chưa từng có trong phân khúc cao cấp, OPPO Find X8 sở hữu loạt công nghệ tiên tiến như hiệu năng đầu bảng Dimensity 9400 siêu mạnh mẽ, tích hợp OPPO AI hữu ích và khả năng zoom đột phá, dẫn đầu nhiếp ảnh smartphone. Đây là chiếc flagship của thương hiệu OPPO mà bạn không thể bỏ qua trong năm 2025.', 0, 0, 0, 40, 0, 2);
-========
+(19, 'Iphone 15 Pro Max', 31000000.00, 0.00, 'iphone-15-promax-2_1694580533.webp', '2023-10-11', 'Phone 15 Pro Max: Siêu phẩm với thiết kế khung titan sang trọng, màn hình Super Retina XDR 6.7 inch sắc nét, chip A17 Pro hiệu suất vượt trội, và hệ thống camera 48MP hỗ trợ zoom quang 5x, mang đến trải nghiệm đẳng cấp trong mọi khía cạnh.', 0, 233, 0, 33, 0, 4),
+(20, 'Iphone 14 Pro Max', 17000000.00, 0.00, 'iPhone14-Purple-1.jpeg', '2023-10-17', 'Thay đổi đáng chú ý nhất trên dòng iPhone 14 Pro/ 14 Pro Max không thể không kể đến nơi đặt cụm camera trước và cảm biến. Năm nay màn hình tai thỏ được chuyển thành màn hình dạng chữ i nằm ngang gọi là Dynamic Island, đây cũng là nơi hiện thông báo mới, kích thước cụm \"Dynamic Island\" sẽ tự động thay đổi kích thước tùy từng trường hợp. Bạn có thể mở rộng bằng các thao tác vuốt chạm, cũng như trở về màn hình chính khi cần thiết.  Thiết kế hình viên thuốc độc đáo của iPhone 14 Pro Max  Sản phẩm mới này của Apple ra mắt người dùng với 4 phiên bản màu sắc sang trọng: Gold, Deep Purple, Space Black và Silver cho bạn tự do lựa chọn theo phong cách cá nhân. ', 0, 24, 0, 33, 0, 1),
+(21, 'Iphone 15 Pro', 22000000.00, 0.00, 'iphone-15-pro-tu-nhien-1.png', '2023-10-29', 'iPhone 15 Pro là tâm điểm sự chú ý trong sự kiện “Wonderlust” của Apple vào rạng sáng ngày 13/9 vừa qua. Chiếc iPhone mới này sở hữu màn hình Super Retina XDR OLED 6,1 inch với tần số quét 120Hz và độ sáng lên tới 2000 nits. Bên cạnh đó, với con chip A17 Pro mạnh mẽ, máy mang đến hiệu năng cao cùng khả năng xử lý đa nhiệm tuyệt vời. Về camera, iPhone 15 Pro được trang bị cụm camera gồm 3 ống kính: 48MP cho góc rộng, 12MP cho tele và góc siêu rộng cao cấp.', 0, 242, 0, 33, 0, 5),
+(27, 'nokia 1', 1000000.00, 1.00, 'nokia-105.jpg', '2024-11-25', 'San pham moi do', 0, 0, 0, 39, 0, 0),
+(29, 'Điện thoại Samsung Galaxy S24 Ultra - 5G - 12GB', 23090000.00, 0.00, 'samsung-galaxy-s24-ultra-grey-thumbnew-600x600.jpg', '2024-10-09', 'Samsung S24 Ultra giữ nguyên nét đẹp tinh tế của phiên bản tiền nhiệm. Bốn góc vuông vắn bo cong đôi chút tạo nên sự uyển chuyển mềm mại. Chất liệu Titanium nổi lên thành xu hướng mới các dòng điện thoại trong năm 2023, dẫn đầu là chiếc iPhone 15 Pro & Pro Max. Độ bền cao, trọng lượng nhẹ và nhiều đặc tính ưu việt, S24 Ultra 12/256GB được gia công tỉ mỉ với Titanium. Mặt lưng kính nhám mang đến diện mạo đẳng cấp, thời thượng.  Samsung Galaxy S24 Ultra  Samsung trang bị 4 màu sắc dành cho chiếc máy này gồm: Titanium Black, Titanium Gray, Titanium Violet, Titanium Yellow. Ngoài ra, Samsung Galaxy S24 Ultra đạt chứng nhận IP68 chống bụi, kháng nước ở độ sâu 1.5 m. Người dùng có thể an tâm sử dụng khi luyện tập hay trong điều kiện ẩm ướt, trời mưa, …  1.2. Màn hình hiển thị sắc nét  Samsung S24 Ultra Ram 12GB 256GB tích hợp tấm nền Dynamic LTPO AMOLED 2X, độ phân giải 1440 x 3120p. Màn hình 6.8 inch đem đến không gian hiển thị vô cùng thoải mái, quan sát dễ dàng, làm việc tiện lợi. Tần số quét 120Hz tạo nên chuyển động khung hình mượt mà khi chuyển tab hay giải trí trò chơi FPS cao.  Samsung Galaxy S24 Ultra  Tính năng HDR10+ với khả năng tái tạo màu sắc ấn tượng, độ tương phản cao. Độ sáng nâng cấp rõ rệt đến 2600nits giúp người dùng có thể dễ dàng theo dõi, quan sát trong điều kiện ánh sáng mạnh. Chưa dừng lại, Samsung còn nâng tầm trải nghiệm với 2 tính năng công nghệ độc đáo:   - Ray tracing: Công nghệ dò tia đình đám trên thị trường, tái tạo môi trường chân thực đem đến phút giây giải trí tựa game đỉnh cao.   - Vision Booster: Tối ưu hóa màu sắc và độ tương phản, làm cho mọi chi tiết trên màn hình trở nên sống động và rõ ràng hơn.  Samsung Galaxy S24 Ultra  Để bảo vệ khỏi tác động và trầy xước trong quá trình sử dụng, Samsung sử dụng lớp kính cường lực Corning Gorilla gia cố. Tính năng Always On Display giúp người dùng quan sát nội dung mà không cần đánh thức màn hình. Dù là một tính năng cao cấp nhưng chúng lại rất hao pin nên người dùng có thể cân nhắc tắt khi không cần thiết', 0, 0, 0, 38, 0, 2),
+(30, 'Huawei Nova 13', 9990000.00, 0.00, 'huawei-nova-13---den_1729833654.jpg.jpg', '2024-11-20', 'Huawei Nova 13 là chiếc smartphone mới, hấp dẫn dành cho người dùng. Máy trang bị chip Kirin 8000 cho hiệu năng tốt, thiết kế đẹp và camera chụp ảnh ấn tượng. Ngay sau đây, mời bạn cùng Dienthoaihay tìm hiểu chi tiết thông số cấu tạo trên máy nhé!', 0, 0, 0, 41, 0, 2),
 (31, 'OPPO Find X8 5G 16GB', 22990000.00, 0.00, 'oppo-find-x8-black-thumb-600x600.jpg', '2024-11-19', 'OPPO Find X8 là biểu tượng của sự tinh xảo và sang trọng. Thiết bị sở hữu phong cách vuông vức, mạnh mẽ với khung viền từ hợp kim nhôm hàng không cao cấp, tạo nên vẻ ngoài cứng cáp nhưng đầy thanh lịch. Điểm nhấn nổi bật là thiết kế viền vũ trụ với các điểm sáng lấp lánh ở cụm camera, kết hợp hài hòa với logo Hasselblad được khắc tỉ mỉ, tạo nên nét đẹp cân đối, vừa độc đáo, vừa đẳng cấp.', 0, 0, 0, 33, 1, 3),
-(32, 'OPPO Find X8', 20000000.00, 0.00, 'oppo-find-x8-black-thumb-600x600.jpg', '2024-11-20', 'OPPO Find X8 là biểu tượng của sự tinh xảo và sang trọng. Thiết bị sở hữu phong cách vuông vức, mạnh mẽ với khung viền từ hợp kim nhôm hàng không cao cấp, tạo nên vẻ ngoài cứng cáp nhưng đầy thanh lịch. Điểm nhấn nổi bật là thiết kế viền vũ trụ với các điểm sáng lấp lánh ở cụm camera, kết hợp hài hòa với logo Hasselblad được khắc tỉ mỉ, tạo nên nét đẹp cân đối, vừa độc đáo, vừa đẳng cấp.', 0, 0, 0, 40, 0, 5);
->>>>>>>> 9d04fa8c006b4ebaab62f523c974c0ba80c17206:du_an1.sql
+(32, 'OPPO Find X8', 20000000.00, 0.00, 'oppo-find-x8-black-thumb-600x600.jpg', '2024-11-20', 'OPPO Find X8 là biểu tượng của sự tinh xảo và sang trọng. Thiết bị sở hữu phong cách vuông vức, mạnh mẽ với khung viền từ hợp kim nhôm hàng không cao cấp, tạo nên vẻ ngoài cứng cáp nhưng đầy thanh lịch. Điểm nhấn nổi bật là thiết kế viền vũ trụ với các điểm sáng lấp lánh ở cụm camera, kết hợp hài hòa với logo Hasselblad được khắc tỉ mỉ, tạo nên nét đẹp cân đối, vừa độc đáo, vừa đẳng cấp.', 0, 0, 0, 40, 0, 4);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `hoi_thoai`
+-- Table structure for table `hoi_thoai`
 --
 
 CREATE TABLE `hoi_thoai` (
-  `ma_hoi_thoai` int(11) NOT NULL,
-  `ma_admin` int(11) NOT NULL,
-  `ma_nguoi_dung` int(11) NOT NULL
+  `ma_hoi_thoai` int NOT NULL,
+  `ma_admin` int NOT NULL,
+  `ma_nguoi_dung` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `hoi_thoai`
+-- Dumping data for table `hoi_thoai`
 --
 
 INSERT INTO `hoi_thoai` (`ma_hoi_thoai`, `ma_admin`, `ma_nguoi_dung`) VALUES
@@ -233,21 +215,21 @@ INSERT INTO `hoi_thoai` (`ma_hoi_thoai`, `ma_admin`, `ma_nguoi_dung`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `khach_hang`
+-- Table structure for table `khach_hang`
 --
 
 CREATE TABLE `khach_hang` (
-  `ma_khach_hang` int(10) NOT NULL,
-  `mat_khau` varchar(99) NOT NULL,
-  `ho_ten` varchar(199) NOT NULL,
-  `hinh` varchar(299) DEFAULT NULL,
-  `email` varchar(299) NOT NULL,
-  `vai_tro` tinyint(1) NOT NULL DEFAULT 0,
-  `an` tinyint(4) NOT NULL DEFAULT 0
+  `ma_khach_hang` int NOT NULL,
+  `mat_khau` varchar(99) COLLATE utf8mb4_general_ci NOT NULL,
+  `ho_ten` varchar(199) COLLATE utf8mb4_general_ci NOT NULL,
+  `hinh` varchar(299) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `email` varchar(299) COLLATE utf8mb4_general_ci NOT NULL,
+  `vai_tro` tinyint(1) NOT NULL DEFAULT '0',
+  `an` tinyint NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `khach_hang`
+-- Dumping data for table `khach_hang`
 --
 
 INSERT INTO `khach_hang` (`ma_khach_hang`, `mat_khau`, `ho_ten`, `hinh`, `email`, `vai_tro`, `an`) VALUES
@@ -259,17 +241,17 @@ INSERT INTO `khach_hang` (`ma_khach_hang`, `mat_khau`, `ho_ten`, `hinh`, `email`
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `loai_hang`
+-- Table structure for table `loai_hang`
 --
 
 CREATE TABLE `loai_hang` (
-  `ma_loai` int(10) NOT NULL COMMENT 'mã loại',
-  `ten_loai` varchar(299) NOT NULL COMMENT 'tên loại',
-  `an_loai_hang` tinyint(4) NOT NULL DEFAULT 0
+  `ma_loai` int NOT NULL COMMENT 'mã loại',
+  `ten_loai` varchar(299) COLLATE utf8mb4_general_ci NOT NULL COMMENT 'tên loại',
+  `an_loai_hang` tinyint NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `loai_hang`
+-- Dumping data for table `loai_hang`
 --
 
 INSERT INTO `loai_hang` (`ma_loai`, `ten_loai`, `an_loai_hang`) VALUES
@@ -282,17 +264,17 @@ INSERT INTO `loai_hang` (`ma_loai`, `ten_loai`, `an_loai_hang`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `phuong_xa`
+-- Table structure for table `phuong_xa`
 --
 
 CREATE TABLE `phuong_xa` (
-  `id_phuong_xa` int(10) NOT NULL,
-  `id_quan_huyen` int(10) NOT NULL,
-  `ten_phuong_xa` varchar(299) NOT NULL
+  `id_phuong_xa` int NOT NULL,
+  `id_quan_huyen` int NOT NULL,
+  `ten_phuong_xa` varchar(299) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `phuong_xa`
+-- Dumping data for table `phuong_xa`
 --
 
 INSERT INTO `phuong_xa` (`id_phuong_xa`, `id_quan_huyen`, `ten_phuong_xa`) VALUES
@@ -10889,17 +10871,17 @@ INSERT INTO `phuong_xa` (`id_phuong_xa`, `id_quan_huyen`, `ten_phuong_xa`) VALUE
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `quan_huyen`
+-- Table structure for table `quan_huyen`
 --
 
 CREATE TABLE `quan_huyen` (
-  `id_quan_huyen` int(10) NOT NULL,
-  `id_tinh` int(10) NOT NULL,
-  `ten_quan_huyen` varchar(100) NOT NULL
+  `id_quan_huyen` int NOT NULL,
+  `id_tinh` int NOT NULL,
+  `ten_quan_huyen` varchar(100) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `quan_huyen`
+-- Dumping data for table `quan_huyen`
 --
 
 INSERT INTO `quan_huyen` (`id_quan_huyen`, `id_tinh`, `ten_quan_huyen`) VALUES
@@ -11612,16 +11594,16 @@ INSERT INTO `quan_huyen` (`id_quan_huyen`, `id_tinh`, `ten_quan_huyen`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tinh`
+-- Table structure for table `tinh`
 --
 
 CREATE TABLE `tinh` (
-  `id_tinh` int(10) NOT NULL,
-  `ten_tinh` varchar(199) NOT NULL
+  `id_tinh` int NOT NULL,
+  `ten_tinh` varchar(199) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tinh`
+-- Dumping data for table `tinh`
 --
 
 INSERT INTO `tinh` (`id_tinh`, `ten_tinh`) VALUES
@@ -11692,20 +11674,20 @@ INSERT INTO `tinh` (`id_tinh`, `ten_tinh`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tin_nhan`
+-- Table structure for table `tin_nhan`
 --
 
 CREATE TABLE `tin_nhan` (
-  `ma_tin_nhan` int(11) NOT NULL,
-  `noi_dung` text NOT NULL,
-  `nguoi_gui` int(11) NOT NULL,
-  `nguoi_nhan` int(11) NOT NULL,
-  `ma_hoi_thoai` int(11) NOT NULL,
-  `create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `ma_tin_nhan` int NOT NULL,
+  `noi_dung` text COLLATE utf8mb4_general_ci NOT NULL,
+  `nguoi_gui` int NOT NULL,
+  `nguoi_nhan` int NOT NULL,
+  `ma_hoi_thoai` int NOT NULL,
+  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tin_nhan`
+-- Dumping data for table `tin_nhan`
 --
 
 INSERT INTO `tin_nhan` (`ma_tin_nhan`, `noi_dung`, `nguoi_gui`, `nguoi_nhan`, `ma_hoi_thoai`, `create_at`) VALUES
@@ -11718,23 +11700,23 @@ INSERT INTO `tin_nhan` (`ma_tin_nhan`, `noi_dung`, `nguoi_gui`, `nguoi_nhan`, `m
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tin_tuc`
+-- Table structure for table `tin_tuc`
 --
 
 CREATE TABLE `tin_tuc` (
-  `id` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `contents` text NOT NULL,
+  `id` int NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `contents` text COLLATE utf8mb4_general_ci NOT NULL,
   `date` date NOT NULL,
-  `views` int(11) NOT NULL
+  `views` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `binh_luann`
+-- Indexes for table `binh_luann`
 --
 ALTER TABLE `binh_luann`
   ADD PRIMARY KEY (`ma_binh_luan`),
@@ -11742,19 +11724,19 @@ ALTER TABLE `binh_luann`
   ADD KEY `ma_hang_hoa` (`ma_hang_hoa`);
 
 --
--- Chỉ mục cho bảng `capacity`
+-- Indexes for table `capacity`
 --
 ALTER TABLE `capacity`
   ADD PRIMARY KEY (`id_capacity`);
 
 --
--- Chỉ mục cho bảng `color`
+-- Indexes for table `color`
 --
 ALTER TABLE `color`
   ADD PRIMARY KEY (`id_color`);
 
 --
--- Chỉ mục cho bảng `ct_don_hang`
+-- Indexes for table `ct_don_hang`
 --
 ALTER TABLE `ct_don_hang`
   ADD PRIMARY KEY (`id_ct_don_hang`),
@@ -11764,7 +11746,7 @@ ALTER TABLE `ct_don_hang`
   ADD KEY `fk_capacity` (`capacity_id`);
 
 --
--- Chỉ mục cho bảng `don_hang`
+-- Indexes for table `don_hang`
 --
 ALTER TABLE `don_hang`
   ADD PRIMARY KEY (`id_don_hang`),
@@ -11774,7 +11756,7 @@ ALTER TABLE `don_hang`
   ADD KEY `fk_mkh1` (`ma_khach_hang`);
 
 --
--- Chỉ mục cho bảng `gio_hang`
+-- Indexes for table `gio_hang`
 --
 ALTER TABLE `gio_hang`
   ADD PRIMARY KEY (`id_gio_hang`),
@@ -11784,168 +11766,152 @@ ALTER TABLE `gio_hang`
   ADD KEY `fk_capacity1` (`capacity_id`);
 
 --
--- Chỉ mục cho bảng `hang_hoa`
+-- Indexes for table `hang_hoa`
 --
 ALTER TABLE `hang_hoa`
   ADD PRIMARY KEY (`ma_hang_hoa`),
   ADD KEY `ma_loai` (`ma_loai`);
 
 --
--- Chỉ mục cho bảng `hoi_thoai`
+-- Indexes for table `hoi_thoai`
 --
 ALTER TABLE `hoi_thoai`
   ADD PRIMARY KEY (`ma_hoi_thoai`);
 
 --
--- Chỉ mục cho bảng `khach_hang`
+-- Indexes for table `khach_hang`
 --
 ALTER TABLE `khach_hang`
   ADD PRIMARY KEY (`ma_khach_hang`);
 
 --
--- Chỉ mục cho bảng `loai_hang`
+-- Indexes for table `loai_hang`
 --
 ALTER TABLE `loai_hang`
   ADD PRIMARY KEY (`ma_loai`);
 
 --
--- Chỉ mục cho bảng `phuong_xa`
+-- Indexes for table `phuong_xa`
 --
 ALTER TABLE `phuong_xa`
   ADD PRIMARY KEY (`id_phuong_xa`),
   ADD KEY `id_quan_huyen` (`id_quan_huyen`);
 
 --
--- Chỉ mục cho bảng `quan_huyen`
+-- Indexes for table `quan_huyen`
 --
 ALTER TABLE `quan_huyen`
   ADD PRIMARY KEY (`id_quan_huyen`),
   ADD KEY `id_tinh` (`id_tinh`);
 
 --
--- Chỉ mục cho bảng `tinh`
+-- Indexes for table `tinh`
 --
 ALTER TABLE `tinh`
   ADD PRIMARY KEY (`id_tinh`);
 
 --
--- Chỉ mục cho bảng `tin_nhan`
+-- Indexes for table `tin_nhan`
 --
 ALTER TABLE `tin_nhan`
   ADD PRIMARY KEY (`ma_tin_nhan`),
   ADD KEY `ma_hoi_thoai` (`ma_hoi_thoai`);
 
 --
--- Chỉ mục cho bảng `tin_tuc`
+-- Indexes for table `tin_tuc`
 --
 ALTER TABLE `tin_tuc`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `binh_luann`
+-- AUTO_INCREMENT for table `binh_luann`
 --
 ALTER TABLE `binh_luann`
-  MODIFY `ma_binh_luan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=712;
+  MODIFY `ma_binh_luan` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=712;
 
 --
--- AUTO_INCREMENT cho bảng `capacity`
+-- AUTO_INCREMENT for table `capacity`
 --
 ALTER TABLE `capacity`
-  MODIFY `id_capacity` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_capacity` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT cho bảng `color`
+-- AUTO_INCREMENT for table `color`
 --
 ALTER TABLE `color`
-  MODIFY `id_color` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_color` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT cho bảng `ct_don_hang`
+-- AUTO_INCREMENT for table `ct_don_hang`
 --
 ALTER TABLE `ct_don_hang`
-<<<<<<<< HEAD:du_an1 (1).sql
-  MODIFY `id_ct_don_hang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
-========
-  MODIFY `id_ct_don_hang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
->>>>>>>> 9d04fa8c006b4ebaab62f523c974c0ba80c17206:du_an1.sql
+  MODIFY `id_ct_don_hang` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
--- AUTO_INCREMENT cho bảng `don_hang`
+-- AUTO_INCREMENT for table `don_hang`
 --
 ALTER TABLE `don_hang`
-<<<<<<<< HEAD:du_an1 (1).sql
-  MODIFY `id_don_hang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
-========
-  MODIFY `id_don_hang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
->>>>>>>> 9d04fa8c006b4ebaab62f523c974c0ba80c17206:du_an1.sql
+  MODIFY `id_don_hang` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
--- AUTO_INCREMENT cho bảng `gio_hang`
+-- AUTO_INCREMENT for table `gio_hang`
 --
 ALTER TABLE `gio_hang`
-<<<<<<<< HEAD:du_an1 (1).sql
-  MODIFY `id_gio_hang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
-========
-  MODIFY `id_gio_hang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=170;
->>>>>>>> 9d04fa8c006b4ebaab62f523c974c0ba80c17206:du_an1.sql
+  MODIFY `id_gio_hang` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=183;
 
 --
--- AUTO_INCREMENT cho bảng `hang_hoa`
+-- AUTO_INCREMENT for table `hang_hoa`
 --
 ALTER TABLE `hang_hoa`
-<<<<<<<< HEAD:du_an1 (1).sql
-  MODIFY `ma_hang_hoa` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
-========
-  MODIFY `ma_hang_hoa` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
->>>>>>>> 9d04fa8c006b4ebaab62f523c974c0ba80c17206:du_an1.sql
+  MODIFY `ma_hang_hoa` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
--- AUTO_INCREMENT cho bảng `hoi_thoai`
+-- AUTO_INCREMENT for table `hoi_thoai`
 --
 ALTER TABLE `hoi_thoai`
-  MODIFY `ma_hoi_thoai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ma_hoi_thoai` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT cho bảng `khach_hang`
+-- AUTO_INCREMENT for table `khach_hang`
 --
 ALTER TABLE `khach_hang`
-  MODIFY `ma_khach_hang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `ma_khach_hang` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
--- AUTO_INCREMENT cho bảng `loai_hang`
+-- AUTO_INCREMENT for table `loai_hang`
 --
 ALTER TABLE `loai_hang`
-  MODIFY `ma_loai` int(10) NOT NULL AUTO_INCREMENT COMMENT 'mã loại', AUTO_INCREMENT=42;
+  MODIFY `ma_loai` int NOT NULL AUTO_INCREMENT COMMENT 'mã loại', AUTO_INCREMENT=42;
 
 --
--- AUTO_INCREMENT cho bảng `tin_nhan`
+-- AUTO_INCREMENT for table `tin_nhan`
 --
 ALTER TABLE `tin_nhan`
-  MODIFY `ma_tin_nhan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ma_tin_nhan` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT cho bảng `tin_tuc`
+-- AUTO_INCREMENT for table `tin_tuc`
 --
 ALTER TABLE `tin_tuc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
--- Các ràng buộc cho các bảng đã đổ
+-- Constraints for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `binh_luann`
+-- Constraints for table `binh_luann`
 --
 ALTER TABLE `binh_luann`
   ADD CONSTRAINT `binh_luann` FOREIGN KEY (`ma_khach_hang`) REFERENCES `khach_hang` (`ma_khach_hang`),
   ADD CONSTRAINT `binh_luann_ibfk_1` FOREIGN KEY (`ma_hang_hoa`) REFERENCES `hang_hoa` (`ma_hang_hoa`);
 
 --
--- Các ràng buộc cho bảng `ct_don_hang`
+-- Constraints for table `ct_don_hang`
 --
 ALTER TABLE `ct_don_hang`
   ADD CONSTRAINT `ct_don_hang_ibfk_1` FOREIGN KEY (`id_don_hang`) REFERENCES `don_hang` (`id_don_hang`),
@@ -11954,7 +11920,7 @@ ALTER TABLE `ct_don_hang`
   ADD CONSTRAINT `fk_hh` FOREIGN KEY (`hang_hoa_id`) REFERENCES `hang_hoa` (`ma_hang_hoa`);
 
 --
--- Các ràng buộc cho bảng `don_hang`
+-- Constraints for table `don_hang`
 --
 ALTER TABLE `don_hang`
   ADD CONSTRAINT `fk_mkh1` FOREIGN KEY (`ma_khach_hang`) REFERENCES `khach_hang` (`ma_khach_hang`),
@@ -11963,7 +11929,7 @@ ALTER TABLE `don_hang`
   ADD CONSTRAINT `ten_khoa_ngoai3` FOREIGN KEY (`tinh`) REFERENCES `tinh` (`id_tinh`);
 
 --
--- Các ràng buộc cho bảng `gio_hang`
+-- Constraints for table `gio_hang`
 --
 ALTER TABLE `gio_hang`
   ADD CONSTRAINT `fk_capacity1` FOREIGN KEY (`capacity_id`) REFERENCES `capacity` (`id_capacity`),
@@ -11972,25 +11938,25 @@ ALTER TABLE `gio_hang`
   ADD CONSTRAINT `fk_msp` FOREIGN KEY (`ma_san_pham`) REFERENCES `hang_hoa` (`ma_hang_hoa`);
 
 --
--- Các ràng buộc cho bảng `hang_hoa`
+-- Constraints for table `hang_hoa`
 --
 ALTER TABLE `hang_hoa`
   ADD CONSTRAINT `hang_hoa_ibfk_1` FOREIGN KEY (`ma_loai`) REFERENCES `loai_hang` (`ma_loai`);
 
 --
--- Các ràng buộc cho bảng `phuong_xa`
+-- Constraints for table `phuong_xa`
 --
 ALTER TABLE `phuong_xa`
   ADD CONSTRAINT `phuong_xa_ibfk_1` FOREIGN KEY (`id_quan_huyen`) REFERENCES `quan_huyen` (`id_quan_huyen`);
 
 --
--- Các ràng buộc cho bảng `quan_huyen`
+-- Constraints for table `quan_huyen`
 --
 ALTER TABLE `quan_huyen`
   ADD CONSTRAINT `quan_huyen_ibfk_1` FOREIGN KEY (`id_tinh`) REFERENCES `tinh` (`id_tinh`);
 
 --
--- Các ràng buộc cho bảng `tin_nhan`
+-- Constraints for table `tin_nhan`
 --
 ALTER TABLE `tin_nhan`
   ADD CONSTRAINT `tin_nhan_ibfk_1` FOREIGN KEY (`ma_hoi_thoai`) REFERENCES `hoi_thoai` (`ma_hoi_thoai`);

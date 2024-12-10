@@ -1,5 +1,5 @@
 <br>
-<button><a href="hang_hoa.php?store2">Tạo thêm mặt hàng</a></button>
+<a href="hang_hoa.php?store2" class="btn btn-success">Tạo thêm mặt hàng</a>
 <table class="table">
     <thead>
         <tr>
@@ -10,8 +10,7 @@
             <th scope="col">Hình</th>
             <th scope="col">Ngày nhập</th>
             <th scope="col">Số lượng</th>
-            <th scope="col">Số lượt xem</th>
-            <th scope="col">Mã loại</th>
+            <th scope="col">Tên loại</th>
         </tr>
     </thead>
     <tbody>
@@ -24,13 +23,8 @@
             <td><?php echo $hang_hoa['don_gia'] ?></td>
             <td><?php echo $hang_hoa['giam_gia'] ?></td>
             <td><img src="public/asset/<?php echo  $hang_hoa['hinh'] ?>" height="80px" width="80px"></td>
-<<<<<<< HEAD
             <td><?php echo $hang_hoa['ngay_nhap'] ?></td>
-=======
-            <td><?php echo $hang_hoa['ngay_nhap'] ?></td>	
->>>>>>> 9d04fa8c006b4ebaab62f523c974c0ba80c17206
             <td><?php echo $hang_hoa['so_luong'] ?></td>
-            <td><?php echo $hang_hoa['so_luot_xem'] ?></td>
             <td>
             <?php
     foreach ($loai_hang as $loai) {

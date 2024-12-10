@@ -2,93 +2,6 @@
     <div id="sec-1" class="container-fluid mt-5">
         <div class="container-fluid mt-5">
             <div class="row d-flex justify-content-center">
-                <!-- <div id="nav-hozi" class="col-md-3">
-                    <div class=" d-flex flex-column mt-5" role="group" aria-label="Basic example">
-                        <div class="btn-group dropend">
-                            <button type="button" class="btn btn-light btn-lg dropdown-toggle rounded-0 btn-hover" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-laptop"></i> <b>Macbook Air</b>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Macbook Air 2022</a></li>
-                                <li><a class="dropdown-item" href="#">Macbook Air 2021</a></li>
-                                <li><a class="dropdown-item" href="#">Macbook Air 2020</a></li>
-                                <li><a class="dropdown-item" href="#">Macbook Air 2019</a></li>
-                            </ul>
-                        </div>
-                        <div class="btn-group dropend">
-                            <button type="button" class="btn btn-light btn-lg dropdown-toggle rounded-0 btn-hover" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-laptop"></i> <b>iMac - Mac Desktop</b>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="">iMac</a></li>
-                                <li><a class="dropdown-item" href="">Mac Mini</a></li>
-                            </ul>
-                        </div>
-                        <div class="btn-group dropend">
-                            <button type="button" class="btn btn-light btn-lg dropdown-toggle rounded-0 btn-hover" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-laptop"></i><b> Macbook Pro</b>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Macbook Pro 2022</a></li>
-                                <li><a class="dropdown-item" href="#">Macbook Pro 2021</a></li>
-                                <li><a class="dropdown-item" href="#">Macbook Pro 2020</a></li>
-                                <li><a class="dropdown-item" href="#">Macbook Pro 2019</a></li>
-                            </ul>
-                        </div>
-                        <div class="btn-group dropend">
-                            <button type="button" class="btn btn-light btn-lg dropdown-toggle rounded-0 btn-hover" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-laptop"></i><b> Macbook M Series</b>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Macbook Pro M1</a></li>
-                                <li><a class="dropdown-item" href="#">Macbook Pro M2</a></li>
-                                <li><a class="dropdown-item" href="#">Macbook Air M1</a></li>
-                                <li><a class="dropdown-item" href="#">Macbook Air M2</a></li>
-                            </ul>
-                        </div>
-                        <div class="btn-group dropend">
-                            <button type="button" class="btn btn-light btn-lg dropdown-toggle rounded-0 btn-hover" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-mobile"></i><b> Iphone</b>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Iphone 14 Series</a></li>
-                                <li><a class="dropdown-item" href="#">Iphone 13 Series</a></li>
-                                <li><a class="dropdown-item" href="#">Iphone 12 Series</a></li>
-                            </ul>
-                        </div>
-                        <div class="btn-group dropend">
-                            <button type="button" class="btn btn-light btn-lg dropdown-toggle rounded-0 btn-hover" data-bs-toggle="dropdown" aria-expanded="false">
-                                <b> Apple Watch</b>
-
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Apple Watch Series 8</a></li>
-                                <li><a class="dropdown-item" href="#">Apple Watch Series 7</a></li>
-                                <li><a class="dropdown-item" href="#">Apple Watch Ultra</a></li>
-                            </ul>
-                        </div>
-                        <div class="btn-group dropend">
-                            <button type="button" class="btn btn-light btn-lg dropdown-toggle rounded-0 btn-hover" data-bs-toggle="dropdown" aria-expanded="false">
-                                <b> Phụ kiện</b>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Bàn phím</a></li>
-                                <li><a class="dropdown-item" href="#">Chuột</a></li>
-                            </ul>
-                        </div>
-                        <div class="btn-group dropend">
-                            <button type="button" class="btn btn-light btn-lg dropdown-toggle rounded-0 btn-hover" data-bs-toggle="dropdown" aria-expanded="false">
-                                <b> Giảm giá shock</b>
-
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Iphone giá shock</a></li>
-                                <li><a class="dropdown-item" href="#">Laptop LikeNew</a></li>
-                                <li><a class="dropdown-item" href="#">Phụ kiện giá rẻ</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div> -->
                 <div id="main" class="col-md-12">
                     <div id="carouselExampleIndicators" class="carousel slide mt-4">
                         <div class="carousel-indicators">
@@ -139,10 +52,9 @@
                             <div class="card-body">
                                 <h5 class=""><?=$san_pham['ten_hang_hoa']?></h5>
                                 <p class="card-text">Ram Rom </p>
-                                <span class="badge text-bg-warning">Đã bán: <?=$san_pham['da_ban']?></span>
-                                <del><?=$san_pham['don_gia']?> đ</del>
-                                <p class="fs-5 text-danger fw-bold"><?=$san_pham['don_gia'] ?>đ</p>
-
+  
+                                <del ><?=$san_pham['don_gia']?></del>
+                                <p class="fs-5 text-danger fw-bold"><?=$san_pham['don_gia'] ?> Vnđ</p>
                                 <a href="./index.php?ma_hang_hoa=<?= $san_pham['ma_hang_hoa']; ?>&ma_loai=<?= $san_pham['ma_loai']; ?>" class="btn btn-outline-danger mt-1">Xem chi tiết</a>
                             </div>
                         </div>
@@ -154,10 +66,6 @@
     </div>
 </div>
 </body>
-<script>
-    setInterval(function() {
-        document.querySelector('.carousel-control-next').click();
-    }, 4000);
-</script>
+
 
 </html>

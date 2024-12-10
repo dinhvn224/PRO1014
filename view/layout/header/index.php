@@ -18,7 +18,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="javascript:void(0)">
                             <div class="text-white">
-                                <h3 class="pt-2">Xin chào admin đẹp trai!</h3>
+                                <h3 class="pt-2">Xin chào admin </h3>
                             </div>
                         </a>
                     </li>

@@ -5,7 +5,7 @@ include_once "database.php";
 class M_don_hang extends database{
 
     function get_all_don_hang(){
-        $query = "SELECT * FROM don_hang INNER JOIN phuong_xa ON don_hang.xa=phuong_xa.id_phuong_xa INNER JOIN quan_huyen ON don_hang.huyen=quan_huyen.id_quan_huyen INNER JOIN tinh ON don_hang.tinh=tinh.id_tinh Order By id_don_hang desc";
+        $query = "SELECT * FROM don_hang INNER JOIN phuong_xa ON don_hang.xa=phuong_xa.id_phuong_xa INNER JOIN quan_huyen ON don_hang.huyen=quan_huyen.id_quan_huyen INNER JOIN tinh ON don_hang.tinh=tinh.id_tinh Order By id_don_hang Desc";
         return $this->pdo_query( $query );
     }
 
@@ -47,8 +47,9 @@ class M_don_hang extends database{
     }
 
     function chi_tiet_don_hang($id){
-        $sql="SELECT hang_hoa.ten_hang_hoa,hang_hoa.don_gia,color.ten_color,capacity.ten_capacity,ct_don_hang.so_luong FROM ct_don_hang
-        INNER JOIN hang_hoa ON hang_hoa.ma_hang_hoa =ct_don_hang.hang_hoa_id 
+        $sql="SELECT hang_hoa.ten_hang_hoa,hang_hoa.don_gia,hang_hoa.hinh,color.ten_color,capacity.ten_capacity,ct_don_hang.so_luong  FROM ct_don_hang
+        
+        INNER JOIN hang_hoa ON hang_hoa.ma_hang_hoa =ct_don_hang.hang_hoa_id
         INNER JOIN color ON color.id_color  =ct_don_hang.color_id  
         INNER JOIN capacity ON capacity.id_capacity  =ct_don_hang.capacity_id   
          WHERE id_don_hang=$id";
@@ -56,7 +57,7 @@ class M_don_hang extends database{
 
     }
     function don_hang_user($id){
-        $sql="SELECT * FROM don_hang INNER JOIN phuong_xa ON don_hang.xa=phuong_xa.id_phuong_xa INNER JOIN quan_huyen ON don_hang.huyen=quan_huyen.id_quan_huyen INNER JOIN tinh ON don_hang.tinh=tinh.id_tinh WHERE ten_khach_hang='$id' Order By id_don_hang desc";
+        $sql="SELECT * FROM don_hang INNER JOIN phuong_xa ON don_hang.xa=phuong_xa.id_phuong_xa INNER JOIN quan_huyen ON don_hang.huyen=quan_huyen.id_quan_huyen INNER JOIN tinh ON don_hang.tinh=tinh.id_tinh WHERE ten_khach_hang='$id' Order By id_don_hang Desc";
         return $this->pdo_query( $sql );
     }
 }

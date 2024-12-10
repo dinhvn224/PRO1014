@@ -6,84 +6,7 @@
                 <div class="product_title border-bottom">
                     <h2 class="fs-bold ">Sản phẩm có liên quan đến tìm kiếm  "<?php echo $search; ?>"</h2>
                 </div>
-                <!-- <div class="row">
-                    <form action="" method="post" class='container d-flex '>
-                        <div class="dropdown my-auto mx-2">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Ram
-                            </button>
-                            <ul class="dropdown-menu p-3">
-                                <li>
-                                    <div class="form-check dropdown-item">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                        <label class="form-check-label" for="flexRadioDefault1">
-                                            8 GB
-                                        </label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="form-check dropdown-item">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                        <label class="form-check-label" for="flexRadioDefault1">
-                                            16 GB
-                                        </label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="form-check dropdown-item">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                        <label class="form-check-label" for="flexRadioDefault1">
-                                            32 GB
-                                        </label>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="dropdown my-auto mx-2">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Dung lượng bộ nhớ
-                            </button>
-                            <ul class="dropdown-menu p-3">
-                                <li>
-                                    <div class="form-check dropdown-item">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault2">
-                                        <label class="form-check-label" for="flexRadioDefault2">
-                                            256 GB
-                                        </label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="form-check dropdown-item">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault2">
-                                        <label class="form-check-label" for="flexRadioDefault2">
-                                            512 GB
-                                        </label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="form-check dropdown-item">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault2">
-                                        <label class="form-check-label" for="flexRadioDefault2">
-                                            1 TB
-                                        </label>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        
-                         <div class="my-auto m-3 col-3">
-                         <label for="priceRangeSlider">Khoảng giá</label>
-                         <div id="priceRangeSlider" class="my-2"></div>
-                         <p id="priceRange">$0 - $1000</p>
-                        </div>
-                   
-                        <div class="my-auto m-3">
-                            <input type="submit" class="btn btn-success d-block" value="Tìm kiếm">
-                        </div>
-                    </form>
-
-                </div> -->
+              
                 <div class="product-list-s my-3">
                     <div class="row container">
                         <?php
@@ -100,7 +23,7 @@
                                             <p class="card-text">Ram Rom </p>
                                             <span class="badge text-bg-warning">Đã bán: <?= $san_pham['da_ban'] ?></span>
                                             <del><?= $san_pham['don_gia'] ?> đ</del>
-                                            <p class="fs-5 text-danger fw-bold"><?= $san_pham['don_gia'] ?>đ</p>
+                                            <p class="fs-5 text-danger fw-bold" id="number"><?= $san_pham['don_gia'] ?>đ</p>
 
                                             <a href="./index.php?ma_hang_hoa=<?= $san_pham['ma_hang_hoa']; ?>&ma_loai=<?= $san_pham['ma_loai']; ?>" class="btn btn-outline-danger mt-1">Chi tiết sản phẩm</a>
                                         </div>
@@ -129,4 +52,12 @@
         $( "#priceRange" ).text( "" + priceRangeSlider.slider( "values", 0 ) +
             " - " + priceRangeSlider.slider( "values", 1 ) );
     } );
+    const numberElement = document.getElementById("number");
+        const rawNumber = parseInt(numberElement.textContent);
+
+        // Định dạng số
+        const formattedNumber = rawNumber.toLocaleString('vi-VN'); // Định dạng cho tiếng Việt
+
+        // Cập nhật nội dung
+        numberElement.textContent = formattedNumber + " Vnđ";
 </script>

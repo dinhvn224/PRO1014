@@ -1,5 +1,6 @@
+
 <br>
-<button><a href="loai_hang.php?store">Tạo thêm loại hàng</a></button>
+<a href="loai_hang.php?store"class="btn btn-success">Tạo thêm loại hàng</a>
 <table class="table">
     <thead class="thead-dark">
         <tr>

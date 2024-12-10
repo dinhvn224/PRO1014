@@ -54,26 +54,10 @@ if (isset($_SESSION['id'])) { ?>
                             –
                             NEW
                         </p>
-                        
-                        <p class="fs-4 text-danger fw-bold">
-                            <?= $chi_tiet_hang_hoa['don_gia'] ?> VND
+                        <p class="card-text">Số lượng các biến thể: <?= $chi_tiet_hang_hoa['so_luong'] ?></p>
+                        <p class="fs-4 text-danger fw-bold" id="number">
+                            <?= $chi_tiet_hang_hoa['don_gia'] ?> Vnđ
                         </p>
-                        <!-- <div>
-                            <p><i class="fa-solid fa-hand-point-up fa-rotate-90" style="color: #218656;"></i> Sản
-                                phẩm
-                                chính hãng Apple mới
-                                100% nguyên seal</p>
-                            <p><i class="fa-solid fa-hand-point-up fa-rotate-90" style="color: #218656;"></i> Giá đã
-                                bao
-                                gồm VAT</p>
-                            <p><i class="fa-solid fa-hand-point-up fa-rotate-90" style="color: #218656;"></i> Bảo
-                                hành
-                                12 tháng</p>
-                            <p><i class="fa-solid fa-hand-point-up fa-rotate-90" style="color: #218656;"></i> Giảm
-                                giá
-                                10% khi mua phụ kiện
-                                kèm theo</p>
-                        </div> -->
                         <form action="" class="my-3 d-flex flex-column">
                             <div class="my-3">
                                 <?php
@@ -116,27 +100,6 @@ if (isset($_SESSION['id'])) { ?>
 
                         </form>
 
-                        <!-- <div class="border p-4">
-
-                            <p><i class="fa-solid fa-gear" style="color: red;"></i> Bộ xử lý CPU:
-                                chip with
-                                8‑core CPU, 8‑core GPU, 16‑core Neural Engine
-                            </p>
-                            <p><i class="fa-solid fa-gear" style="color: red;"></i> Bộ nhớ RAM:
-                                unified memory
-                            </p>
-                            <p><i class="fa-solid fa-gear" style="color: red;"></i> Ổ cứng:
-                                SSD storage
-                            </p>
-                            <p><i class="fa-solid fa-gear" style="color: red;"></i> Màn hình:
-                                Liquid Retina
-                                display with True Tone
-                            </p>
-                            <p><i class="fa-solid fa-gear" style="color: red;"></i> Card màn hình:
-
-                            </p>
-                        </div> -->
-
                         <div class="mt-3 d-grid gap-2">
 
                             <!-- <button id="add" class="btn btn-danger"></button> -->
@@ -146,19 +109,6 @@ if (isset($_SESSION['id'])) { ?>
                         </div>
 
                         <?php
-                        // include_once 'model/m_gio_hang.php';
-                        //     if (isset($_POST['add'])) {
-                        //         if(isset($_SESSION['id'])){
-
-                        //             if((new M_gio_hang())->them_sp_vao_gio_hang2($_GET['ma_hang_hoa'], $_SESSION['id'])){
-                        //                 echo "<script>alert('Thêm thành công')</script>";
-                        //             }else{
-
-                        //             }
-                        //         }else{
-                        //             header('Location:dang_nhap.php');
-                        //         }
-                        //     }
                         ?>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6">
@@ -170,10 +120,10 @@ if (isset($_SESSION['id'])) { ?>
                             <div class="card-body">
                                 <p><i class="fa-solid fa-check" style="color: #218656;"></i> Dùng thử 10 ngày miễn
                                     phí
-                                    đổi máy. (Macbook Like New)</p>
+                                    đổi máy.</p>
                                 <p><i class="fa-solid fa-check" style="color: #218656;"></i> Lỗi 1 Đổi 1 trong 30
                                     ngày
-                                    đầu. (Macbook Like New)</p>
+                                    đầu. </p>
                                 <p><i class="fa-solid fa-check" style="color: #218656;"></i> Giao hàng tận nhà toàn
                                     quốc
                                 </p>
@@ -187,70 +137,14 @@ if (isset($_SESSION['id'])) { ?>
             </div>
         </div>
     </div>
-    <!-- <div id="sec-3" class="mx-5">
-        <h3 class="mt-5 mb-4">Thông số kỹ thuật</h3>
-        <table class="table table-striped table-bordered">
-            <tbody>
-                <tr>
-                    <th scope="row">Bộ xử lý CPU:</th>
-                    <td>
-                        chip with
-                        8‑core CPU, 8‑core GPU, 16‑core Neural Engine
-                    </td>
 
-                </tr>
-                <tr>
-                    <th scope="row">Bộ nhớ RAM:</th>
-                    <td>
-                        unified memory
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">Màn hình:</th>
-                    <td>1
-                        Liquid Retina
-                        display with True Tone
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">Card màn hình:</th>
-                    <td>
-
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">Ổ cứng:</th>
-                    <td>
-                        SSD storage
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">Kích thước và trọng lượng:</th>
-                    <td>2.7 pounds (1.24 kg)</td>
-                </tr>
-                <tr>
-                    <th scope="row">Camera:</th>
-                    <td>
-                        FaceTime HD camera
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div> -->
 
     <div id="sec-4" class="mx-5 d-flex flex-column">
         <h3 class="mt-5 mb-4">Mô tả sản phẩm</h3>
         <img src="public/asset/<?= $chi_tiet_hang_hoa['hinh'] ?>" style="width: 30rem;" alt="">
         <?= $chi_tiet_hang_hoa['mo_ta'] ?>
     </div>
-    <!-- <h3 class="mt-5 mb-4 m-5">Bình luận</h3>
-    <div style="width: 80%" class="d-block mx-auto">
-        <form style="width:100%" method="POST">
-            <div class="mb-3">
-                <textarea name="comment" cols="100" rows="5" class="form-control" placeholder="Mời bạn bình luận và đặt câu hỏi" required></textarea>
-            </div>
-            <input name='submitt' type="submit" class="btn btn-primary">
-        </form> -->
+
 
         <?php
         include_once "model/m_binh_luan.php";
@@ -313,9 +207,8 @@ if (isset($_SESSION['id'])) { ?>
                     <img style="height: 15rem;" src="public/asset/<?= $lh['hinh'] ?>" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class=""><?= $lh['ten_hang_hoa'] ?></h5>
-                        <span class="badge text-bg-warning">Đã bán: <?= $lh['da_ban'] ?></span>
                         <del><?= $lh['don_gia'] ?> đ</del>
-                        <p class="fs-5 text-danger fw-bold"><?= $lh['don_gia'] ?>đ</p>
+                        <p class="fs-5 text-danger fw-bold"><?= $lh['don_gia'] ?></p>
 
                         <a href="./index.php?ma_hang_hoa=<?= $lh['ma_hang_hoa']; ?>&ma_loai=<?= $lh['ma_loai']; ?>" class="btn btn-outline-danger mt-1"> Xem chi tiết</a>
                     </div>
@@ -428,5 +321,5 @@ if (isset($_SESSION['id'])) { ?>
         },2000);
         
     }
-    
+
 </script>

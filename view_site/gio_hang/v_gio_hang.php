@@ -34,7 +34,7 @@
                             <th scope="row"><?php echo $index + 1 ?></th>
                             <td><img style="width: 60px;" src="public/asset/<?= $gio_hang['hinh'] ?>" /></td>
                             <td><?php echo $gio_hang['ten_hang_hoa'] ?></td>
-                            <td><?php echo $gio_hang['don_gia'] ?></td>
+                            <td ><?php echo $gio_hang['don_gia'] ?> Vnđ</td>
                             <td><?php echo $gio_hang['ten_capacity'] ?></td>
                             <td><?php echo $gio_hang['ten_color'] ?>
                             <div class="small-square" style="background-color:<?php echo $gio_hang['ma_mau'] ?>"></div>
@@ -46,7 +46,7 @@
 
                                 <input type="button" value="-" class="giam btn btn-primary rounded rounded-circle" data-ma-gio-hang="<?php echo $gio_hang['id_gio_hang'] ?>">
                             </td>
-                            <td id="<?php echo "tong_tien" . $gio_hang['id_gio_hang'] ?>"><?php echo $gio_hang['tong_gia'] ?></td>
+                            <td id="<?php echo "tong_tien" . $gio_hang['id_gio_hang'] ?>"><?php echo $gio_hang['tong_gia'] ?> Vnđ</td>
                             <td> <input type="button" value="Xoá" class="xoa btn btn-danger" data-ma-gio-hang="<?php echo $gio_hang['id_gio_hang'] ?>">
                                 <input type="hidden" name="xoa" value="xoa">
                             </td>
@@ -209,4 +209,12 @@
         }
 
     });
+        const numberElement = document.getElementById("number");
+        const rawNumber = parseInt(numberElement.textContent);
+
+        // Định dạng số
+        const formattedNumber = rawNumber.toLocaleString('vi-VN'); // Định dạng cho tiếng Việt
+
+        // Cập nhật nội dung
+        numberElement.textContent = formattedNumber +" Vnđ";
 </script>

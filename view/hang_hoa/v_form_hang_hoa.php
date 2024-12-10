@@ -39,6 +39,7 @@
         <?php
     foreach ($loai_hang as $loai) {
         if($hang_hoa_by_id['ma_loai']==$loai['ma_loai']){
+
     ?>
         <option value="<?php echo $loai['ma_loai'] ?>">
             <?php echo $loai['ten_loai']; ?>

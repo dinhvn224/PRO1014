@@ -16,11 +16,11 @@
             <td><?php echo $khach['ho_ten'] ?></td>
             <td><?php echo $khach['email'] ?></td>
             <td><a href="./khach_hang.php?ma_khach_hang=<?php echo $khach['ma_khach_hang'] ?>">
-                    <button type="button" class="btn btn-warning">Sửa</button></a>
+
                 <form action="khach_hang.php" method="post">
                     <input type="hidden" name="action" value="delete">
                     <input type="hidden" name="data" value="<?php echo $khach['ma_khach_hang'] ?>">
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-danger">Ẩn</button>
                 </form>
             </td>
         </tr>

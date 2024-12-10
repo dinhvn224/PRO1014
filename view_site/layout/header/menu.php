@@ -32,7 +32,7 @@
                                     <a class="nav-link  text-white active" aria-current="page" href="about.php">Giới thiệu</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link  text-white active" aria-current="page" href="#">Liên hệ</a>
+                                    <a class="nav-link  text-white active" aria-current="page" href="lienhe.php">Liên hệ</a>
                                 </li>
                             </ul>
 

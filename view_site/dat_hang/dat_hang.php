@@ -35,10 +35,10 @@
                     <input type="text" class="form-control" value="<?= $_SESSION['email'] ?>" required disabled>
                     <input class="form-control" name="sdt" id="sdt" type="number" placeholder="Nhập số điện thoại nhận hàng" required>
                 </div>
-                <div class="form-group my-4 d-flex flex-column">
+                <div class="table table-striped table-bordered table-hover align-middle">
                     <label>Thông tin đơn hàng</label>
                     <table class="table table-striped">
-                        <thead>
+                        <thead class="table-dark">
                             <tr>
                                 <td>Tên sản phẩm</td>
                                 <td>Đơn giá</td>
@@ -67,16 +67,20 @@
                 <?php }
 
                 ?>
-                <tr >
-                    <td class="bg-success text-white" colspan="3">Tổng tiền</td>
+                <tfoot class="table-success fw-bold">
+                <tr>
+                    <td colspan="3" class="text-middle">Tổng tiền</td>
                     <td ><?=$tong?></td>
-            </tr>
+                </tr>
+                </tfoot>
+
 
                 </tbody>
-                    </table>
+            </table>
                 <input type="submit" name="add_salee" class="btn btn-primary w-100 form-input my-3" value="Đặt hàng">
                 </div>
             </div>
+ 
     </form>
     <?php
     // include_once "ex_dat_hang.php";
