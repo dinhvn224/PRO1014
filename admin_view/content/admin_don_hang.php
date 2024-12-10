@@ -128,7 +128,6 @@
                                                     
                                                 </select>
                                                 <input value="Xác nhận thay đổi ?" type="submit" class="btn btn-primary" name="btn<?= $val['id_don_hang'] ?>">
-                                                <input value="Xóa đơn hàng ?" type="submit" class="btn btn-danger" name="del<?= $val['id_don_hang'] ?>">
                                                 <a href="don_hang.php?ma_don=<?php echo $val['id_don_hang'] ?>" class="btn btn-danger">Xem đơn hàng</a>
                                             </form>
                                             <?php
