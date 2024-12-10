@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3307
--- Generation Time: Nov 27, 2024 at 08:00 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Host: localhost:3306
+-- Generation Time: Dec 10, 2024 at 03:20 PM
+-- Server version: 8.0.30
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `xshop1`
+-- Database: `du_an1`
 --
 
 -- --------------------------------------------------------
@@ -28,11 +28,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `binh_luann` (
-  `ma_binh_luan` int(11) NOT NULL,
-  `noi_dung` text NOT NULL,
-  `ma_khach_hang` int(11) NOT NULL,
-  `ma_hang_hoa` int(11) NOT NULL,
-  `thuoc_binh_luan` int(11) DEFAULT NULL
+  `ma_binh_luan` int NOT NULL,
+  `noi_dung` text COLLATE utf8mb4_general_ci NOT NULL,
+  `ma_khach_hang` int NOT NULL,
+  `ma_hang_hoa` int NOT NULL,
+  `thuoc_binh_luan` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -42,8 +42,8 @@ CREATE TABLE `binh_luann` (
 --
 
 CREATE TABLE `capacity` (
-  `id_capacity` int(10) NOT NULL,
-  `ten_capacity` varchar(255) NOT NULL
+  `id_capacity` int NOT NULL,
+  `ten_capacity` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -63,9 +63,9 @@ INSERT INTO `capacity` (`id_capacity`, `ten_capacity`) VALUES
 --
 
 CREATE TABLE `color` (
-  `id_color` int(10) NOT NULL,
-  `ten_color` varchar(255) NOT NULL,
-  `ma_mau` varchar(255) NOT NULL
+  `id_color` int NOT NULL,
+  `ten_color` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `ma_mau` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -75,13 +75,7 @@ CREATE TABLE `color` (
 INSERT INTO `color` (`id_color`, `ten_color`, `ma_mau`) VALUES
 (1, 'Đen', '#000000'),
 (2, 'Trắng', '#FFFFFF'),
-(3, 'Xanh Dương', '#0000FF'),
-(4, 'Xanh Lá', '#00FF00'),
-(5, 'Đỏ', '#FF0000'),
 (6, 'Vàng', '#FFFF00'),
-(7, 'Bạc', '#C0C0C0'),
-(8, 'Hồng', '#FFC0CB'),
-(9, 'Tím', '#800080'),
 (10, 'Xám', '#808080');
 
 -- --------------------------------------------------------
@@ -91,23 +85,28 @@ INSERT INTO `color` (`id_color`, `ten_color`, `ma_mau`) VALUES
 --
 
 CREATE TABLE `ct_don_hang` (
-  `id_ct_don_hang` int(10) NOT NULL,
-  `hang_hoa_id` int(10) NOT NULL,
-  `color_id` int(10) NOT NULL,
-  `capacity_id` int(10) NOT NULL,
-  `so_luong` int(10) NOT NULL,
-  `id_don_hang` int(10) NOT NULL
+  `id_ct_don_hang` int NOT NULL,
+  `hang_hoa_id` int NOT NULL,
+  `color_id` int NOT NULL,
+  `capacity_id` int NOT NULL,
+  `so_luong` int NOT NULL,
+  `id_don_hang` int NOT NULL,
+  `tong_ct` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `ct_don_hang`
 --
 
-INSERT INTO `ct_don_hang` (`id_ct_don_hang`, `hang_hoa_id`, `color_id`, `capacity_id`, `so_luong`, `id_don_hang`) VALUES
-(10, 20, 3, 1, 2, 25),
-(11, 20, 5, 1, 1, 25),
-(12, 21, 3, 3, 3, 25),
-(13, 20, 1, 1, 1, 26);
+INSERT INTO `ct_don_hang` (`id_ct_don_hang`, `hang_hoa_id`, `color_id`, `capacity_id`, `so_luong`, `id_don_hang`, `tong_ct`) VALUES
+(30, 20, 6, 1, 2, 41, 3400000),
+(31, 19, 6, 2, 3, 42, 3300000),
+(33, 19, 6, 1, 1, 44, 3100000),
+(34, 29, 6, 1, 1, 45, 23090000),
+(35, 30, 10, 1, 2, 46, 19980000),
+(36, 32, 1, 1, 1, 47, 20000000),
+(37, 30, 10, 3, 1, 48, 9990000),
+(38, 21, 1, 1, 2, 49, 44000000);
 
 -- --------------------------------------------------------
 
@@ -116,24 +115,31 @@ INSERT INTO `ct_don_hang` (`id_ct_don_hang`, `hang_hoa_id`, `color_id`, `capacit
 --
 
 CREATE TABLE `don_hang` (
-  `id_don_hang` int(10) NOT NULL,
-  `ma_khach_hang` int(10) DEFAULT NULL,
-  `ten_khach_hang` varchar(399) NOT NULL,
-  `email_khach_hang` varchar(399) NOT NULL,
-  `xa` int(10) NOT NULL,
-  `huyen` int(10) NOT NULL,
-  `tinh` int(10) NOT NULL,
-  `sdt` int(10) NOT NULL,
-  `trang_thai` tinyint(4) NOT NULL
+  `id_don_hang` int NOT NULL,
+  `ma_khach_hang` int DEFAULT NULL,
+  `ten_khach_hang` varchar(399) COLLATE utf8mb4_general_ci NOT NULL,
+  `email_khach_hang` varchar(399) COLLATE utf8mb4_general_ci NOT NULL,
+  `xa` int NOT NULL,
+  `huyen` int NOT NULL,
+  `tinh` int NOT NULL,
+  `sdt` int NOT NULL,
+  `trang_thai` tinyint NOT NULL,
+  `dateOrder` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `don_hang`
 --
 
-INSERT INTO `don_hang` (`id_don_hang`, `ma_khach_hang`, `ten_khach_hang`, `email_khach_hang`, `xa`, `huyen`, `tinh`, `sdt`, `trang_thai`) VALUES
-(25, 34, 'dat dep trai vãi cứt', 'datldph31606@gmail.com', 15, 2, 1, 365245602, 1),
-(26, 34, 'dat dep trai vãi cứt', 'datldph31606@gmail.com', 15, 2, 1, 365245602, 1);
+INSERT INTO `don_hang` (`id_don_hang`, `ma_khach_hang`, `ten_khach_hang`, `email_khach_hang`, `xa`, `huyen`, `tinh`, `sdt`, `trang_thai`, `dateOrder`) VALUES
+(41, 45, 'tú đỗ', 'tukyx77@gmail.com', 2272, 134, 13, 912583001, 5, '2024-12-10 21:21:04'),
+(42, 45, 'tú đỗ', 'tukyx77@gmail.com', 2505, 146, 14, 912593001, 5, '2024-12-10 21:22:13'),
+(44, 45, 'tú đỗ', 'tukyx77@gmail.com', 2830, 166, 15, 942154798, 5, '2024-11-13 21:25:08'),
+(45, 45, 'tú đỗ', 'tukyx77@gmail.com', 1976, 116, 11, 912530111, 5, '2024-12-10 21:49:07'),
+(46, 45, 'tú đỗ', 'tukyx77@gmail.com', 3060, 179, 16, 123456786, 5, '2024-12-10 21:49:29'),
+(47, 45, 'tú đỗ', 'tukyx77@gmail.com', 28, 2, 1, 124678688, 5, '2024-08-07 00:00:00'),
+(48, 45, 'tú đỗ', 'tukyx77@gmail.com', 28, 2, 1, 912537885, 5, '2024-10-09 21:50:07'),
+(49, 45, 'tú đỗ', 'tukyx77@gmail.com', 2606, 155, 14, 912539000, 5, '2024-09-28 21:53:25');
 
 -- --------------------------------------------------------
 
@@ -142,12 +148,12 @@ INSERT INTO `don_hang` (`id_don_hang`, `ma_khach_hang`, `ten_khach_hang`, `email
 --
 
 CREATE TABLE `gio_hang` (
-  `id_gio_hang` int(10) NOT NULL,
-  `ma_khach_hang` int(10) NOT NULL,
-  `ma_san_pham` int(10) NOT NULL,
-  `color_id` int(10) NOT NULL,
-  `capacity_id` int(11) NOT NULL,
-  `so_luong_san_pham` int(100) NOT NULL
+  `id_gio_hang` int NOT NULL,
+  `ma_khach_hang` int NOT NULL,
+  `ma_san_pham` int NOT NULL,
+  `color_id` int NOT NULL,
+  `capacity_id` int NOT NULL,
+  `so_luong_san_pham` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -157,29 +163,34 @@ CREATE TABLE `gio_hang` (
 --
 
 CREATE TABLE `hang_hoa` (
-  `ma_hang_hoa` int(10) NOT NULL,
-  `ten_hang_hoa` varchar(299) NOT NULL,
+  `ma_hang_hoa` int NOT NULL,
+  `ten_hang_hoa` varchar(299) COLLATE utf8mb4_general_ci NOT NULL,
   `don_gia` double(10,2) NOT NULL,
-  `giam_gia` double(10,2) DEFAULT 0.00,
-  `hinh` varchar(299) NOT NULL,
+  `giam_gia` double(10,2) DEFAULT '0.00',
+  `hinh` varchar(299) COLLATE utf8mb4_general_ci NOT NULL,
   `ngay_nhap` date DEFAULT NULL,
-  `mo_ta` text NOT NULL,
+  `mo_ta` text COLLATE utf8mb4_general_ci NOT NULL,
   `dac_biet` tinyint(1) NOT NULL,
-  `so_luot_xem` int(11) NOT NULL DEFAULT 0,
-  `da_ban` int(11) NOT NULL DEFAULT 0,
-  `ma_loai` int(10) DEFAULT NULL,
-  `an_hang_hoa` tinyint(4) NOT NULL DEFAULT 0
+  `so_luot_xem` int NOT NULL DEFAULT '0',
+  `da_ban` int NOT NULL DEFAULT '0',
+  `ma_loai` int DEFAULT NULL,
+  `an_hang_hoa` tinyint NOT NULL DEFAULT '0',
+  `so_luong` int NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `hang_hoa`
 --
 
-INSERT INTO `hang_hoa` (`ma_hang_hoa`, `ten_hang_hoa`, `don_gia`, `giam_gia`, `hinh`, `ngay_nhap`, `mo_ta`, `dac_biet`, `so_luot_xem`, `da_ban`, `ma_loai`, `an_hang_hoa`) VALUES
-(19, 'Iphone 15 Pro Max', 1100000.00, 0.00, 'iphone13promax.jpg', '2023-10-11', 'Phone 15 Pro Max: Siêu phẩm với thiết kế khung titan sang trọng, màn hình Super Retina XDR 6.7 inch sắc nét, chip A17 Pro hiệu suất vượt trội, và hệ thống camera 48MP hỗ trợ zoom quang 5x, mang đến trải nghiệm đẳng cấp trong mọi khía cạnh.', 0, 233, 0, 33, 0),
-(20, 'Iphone 14 Pro Max', 1700000.00, 0.00, 'iPhone14-Purple-1.jpeg', '2023-10-17', 'iPad 1', 0, 24, 0, 33, 0),
-(21, 'Iphone 15 Pro', 1200000.00, 0.00, 'iphone14promax.jpeg', '2023-10-29', 'iPad 2', 0, 242, 0, 33, 0),
-(27, 'nokia 1', 10000000.00, 1.00, 'nokia-105.jpg', '2024-11-25', 'San pham moi do', 0, 0, 0, 39, 0);
+INSERT INTO `hang_hoa` (`ma_hang_hoa`, `ten_hang_hoa`, `don_gia`, `giam_gia`, `hinh`, `ngay_nhap`, `mo_ta`, `dac_biet`, `so_luot_xem`, `da_ban`, `ma_loai`, `an_hang_hoa`, `so_luong`) VALUES
+(19, 'Iphone 15 Pro Max', 31000000.00, 0.00, 'iphone-15-promax-2_1694580533.webp', '2023-10-11', 'Phone 15 Pro Max: Siêu phẩm với thiết kế khung titan sang trọng, màn hình Super Retina XDR 6.7 inch sắc nét, chip A17 Pro hiệu suất vượt trội, và hệ thống camera 48MP hỗ trợ zoom quang 5x, mang đến trải nghiệm đẳng cấp trong mọi khía cạnh.', 0, 233, 0, 33, 0, 4),
+(20, 'Iphone 14 Pro Max', 17000000.00, 0.00, 'iPhone14-Purple-1.jpeg', '2023-10-17', 'Thay đổi đáng chú ý nhất trên dòng iPhone 14 Pro/ 14 Pro Max không thể không kể đến nơi đặt cụm camera trước và cảm biến. Năm nay màn hình tai thỏ được chuyển thành màn hình dạng chữ i nằm ngang gọi là Dynamic Island, đây cũng là nơi hiện thông báo mới, kích thước cụm \"Dynamic Island\" sẽ tự động thay đổi kích thước tùy từng trường hợp. Bạn có thể mở rộng bằng các thao tác vuốt chạm, cũng như trở về màn hình chính khi cần thiết.  Thiết kế hình viên thuốc độc đáo của iPhone 14 Pro Max  Sản phẩm mới này của Apple ra mắt người dùng với 4 phiên bản màu sắc sang trọng: Gold, Deep Purple, Space Black và Silver cho bạn tự do lựa chọn theo phong cách cá nhân. ', 0, 24, 0, 33, 0, 1),
+(21, 'Iphone 15 Pro', 22000000.00, 0.00, 'iphone-15-pro-tu-nhien-1.png', '2023-10-29', 'iPhone 15 Pro là tâm điểm sự chú ý trong sự kiện “Wonderlust” của Apple vào rạng sáng ngày 13/9 vừa qua. Chiếc iPhone mới này sở hữu màn hình Super Retina XDR OLED 6,1 inch với tần số quét 120Hz và độ sáng lên tới 2000 nits. Bên cạnh đó, với con chip A17 Pro mạnh mẽ, máy mang đến hiệu năng cao cùng khả năng xử lý đa nhiệm tuyệt vời. Về camera, iPhone 15 Pro được trang bị cụm camera gồm 3 ống kính: 48MP cho góc rộng, 12MP cho tele và góc siêu rộng cao cấp.', 0, 242, 0, 33, 0, 5),
+(27, 'nokia 1', 1000000.00, 1.00, 'nokia-105.jpg', '2024-11-25', 'San pham moi do', 0, 0, 0, 39, 0, 0),
+(29, 'Điện thoại Samsung Galaxy S24 Ultra - 5G - 12GB', 23090000.00, 0.00, 'samsung-galaxy-s24-ultra-grey-thumbnew-600x600.jpg', '2024-10-09', 'Samsung S24 Ultra giữ nguyên nét đẹp tinh tế của phiên bản tiền nhiệm. Bốn góc vuông vắn bo cong đôi chút tạo nên sự uyển chuyển mềm mại. Chất liệu Titanium nổi lên thành xu hướng mới các dòng điện thoại trong năm 2023, dẫn đầu là chiếc iPhone 15 Pro & Pro Max. Độ bền cao, trọng lượng nhẹ và nhiều đặc tính ưu việt, S24 Ultra 12/256GB được gia công tỉ mỉ với Titanium. Mặt lưng kính nhám mang đến diện mạo đẳng cấp, thời thượng.  Samsung Galaxy S24 Ultra  Samsung trang bị 4 màu sắc dành cho chiếc máy này gồm: Titanium Black, Titanium Gray, Titanium Violet, Titanium Yellow. Ngoài ra, Samsung Galaxy S24 Ultra đạt chứng nhận IP68 chống bụi, kháng nước ở độ sâu 1.5 m. Người dùng có thể an tâm sử dụng khi luyện tập hay trong điều kiện ẩm ướt, trời mưa, …  1.2. Màn hình hiển thị sắc nét  Samsung S24 Ultra Ram 12GB 256GB tích hợp tấm nền Dynamic LTPO AMOLED 2X, độ phân giải 1440 x 3120p. Màn hình 6.8 inch đem đến không gian hiển thị vô cùng thoải mái, quan sát dễ dàng, làm việc tiện lợi. Tần số quét 120Hz tạo nên chuyển động khung hình mượt mà khi chuyển tab hay giải trí trò chơi FPS cao.  Samsung Galaxy S24 Ultra  Tính năng HDR10+ với khả năng tái tạo màu sắc ấn tượng, độ tương phản cao. Độ sáng nâng cấp rõ rệt đến 2600nits giúp người dùng có thể dễ dàng theo dõi, quan sát trong điều kiện ánh sáng mạnh. Chưa dừng lại, Samsung còn nâng tầm trải nghiệm với 2 tính năng công nghệ độc đáo:   - Ray tracing: Công nghệ dò tia đình đám trên thị trường, tái tạo môi trường chân thực đem đến phút giây giải trí tựa game đỉnh cao.   - Vision Booster: Tối ưu hóa màu sắc và độ tương phản, làm cho mọi chi tiết trên màn hình trở nên sống động và rõ ràng hơn.  Samsung Galaxy S24 Ultra  Để bảo vệ khỏi tác động và trầy xước trong quá trình sử dụng, Samsung sử dụng lớp kính cường lực Corning Gorilla gia cố. Tính năng Always On Display giúp người dùng quan sát nội dung mà không cần đánh thức màn hình. Dù là một tính năng cao cấp nhưng chúng lại rất hao pin nên người dùng có thể cân nhắc tắt khi không cần thiết', 0, 0, 0, 38, 0, 2),
+(30, 'Huawei Nova 13', 9990000.00, 0.00, 'huawei-nova-13---den_1729833654.jpg.jpg', '2024-11-20', 'Huawei Nova 13 là chiếc smartphone mới, hấp dẫn dành cho người dùng. Máy trang bị chip Kirin 8000 cho hiệu năng tốt, thiết kế đẹp và camera chụp ảnh ấn tượng. Ngay sau đây, mời bạn cùng Dienthoaihay tìm hiểu chi tiết thông số cấu tạo trên máy nhé!', 0, 0, 0, 41, 0, 2),
+(31, 'OPPO Find X8 5G 16GB', 22990000.00, 0.00, 'oppo-find-x8-black-thumb-600x600.jpg', '2024-11-19', 'OPPO Find X8 là biểu tượng của sự tinh xảo và sang trọng. Thiết bị sở hữu phong cách vuông vức, mạnh mẽ với khung viền từ hợp kim nhôm hàng không cao cấp, tạo nên vẻ ngoài cứng cáp nhưng đầy thanh lịch. Điểm nhấn nổi bật là thiết kế viền vũ trụ với các điểm sáng lấp lánh ở cụm camera, kết hợp hài hòa với logo Hasselblad được khắc tỉ mỉ, tạo nên nét đẹp cân đối, vừa độc đáo, vừa đẳng cấp.', 0, 0, 0, 33, 1, 3),
+(32, 'OPPO Find X8', 20000000.00, 0.00, 'oppo-find-x8-black-thumb-600x600.jpg', '2024-11-20', 'OPPO Find X8 là biểu tượng của sự tinh xảo và sang trọng. Thiết bị sở hữu phong cách vuông vức, mạnh mẽ với khung viền từ hợp kim nhôm hàng không cao cấp, tạo nên vẻ ngoài cứng cáp nhưng đầy thanh lịch. Điểm nhấn nổi bật là thiết kế viền vũ trụ với các điểm sáng lấp lánh ở cụm camera, kết hợp hài hòa với logo Hasselblad được khắc tỉ mỉ, tạo nên nét đẹp cân đối, vừa độc đáo, vừa đẳng cấp.', 0, 0, 0, 40, 0, 4);
 
 -- --------------------------------------------------------
 
@@ -188,9 +199,9 @@ INSERT INTO `hang_hoa` (`ma_hang_hoa`, `ten_hang_hoa`, `don_gia`, `giam_gia`, `h
 --
 
 CREATE TABLE `hoi_thoai` (
-  `ma_hoi_thoai` int(11) NOT NULL,
-  `ma_admin` int(11) NOT NULL,
-  `ma_nguoi_dung` int(11) NOT NULL
+  `ma_hoi_thoai` int NOT NULL,
+  `ma_admin` int NOT NULL,
+  `ma_nguoi_dung` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -208,13 +219,13 @@ INSERT INTO `hoi_thoai` (`ma_hoi_thoai`, `ma_admin`, `ma_nguoi_dung`) VALUES
 --
 
 CREATE TABLE `khach_hang` (
-  `ma_khach_hang` int(10) NOT NULL,
-  `mat_khau` varchar(99) NOT NULL,
-  `ho_ten` varchar(199) NOT NULL,
-  `hinh` varchar(299) DEFAULT NULL,
-  `email` varchar(299) NOT NULL,
-  `vai_tro` tinyint(1) NOT NULL DEFAULT 0,
-  `an` tinyint(4) NOT NULL DEFAULT 0
+  `ma_khach_hang` int NOT NULL,
+  `mat_khau` varchar(99) COLLATE utf8mb4_general_ci NOT NULL,
+  `ho_ten` varchar(199) COLLATE utf8mb4_general_ci NOT NULL,
+  `hinh` varchar(299) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `email` varchar(299) COLLATE utf8mb4_general_ci NOT NULL,
+  `vai_tro` tinyint(1) NOT NULL DEFAULT '0',
+  `an` tinyint NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -222,18 +233,10 @@ CREATE TABLE `khach_hang` (
 --
 
 INSERT INTO `khach_hang` (`ma_khach_hang`, `mat_khau`, `ho_ten`, `hinh`, `email`, `vai_tro`, `an`) VALUES
-(33, '$2y$12$RL2pPGZRD0JvpZoEGteSa.tfHvTZ4tISjPaBc3KnsHiCYF8Q/Rhay', 'admin', NULL, 'leduydat277@gmail.com', 1, 0),
-(34, '$2y$12$P5OeMVB/Nxnj6.m23Y1L0eySuPui98MA.i6SDdLNooKHG5jRYjWTS', 'dat dep trai vãi cứt', NULL, 'datldph31606@gmail.com', 0, 0),
-(35, '$2y$12$dCSkIms7hTxMVdkceBsjh.6MJsP1agz4R24mknYN1jTnGcajGFP1K', 'vu city boy', 'public/image2/IMG_0361.jpeg', 'lieuvu@gmail.com', 1, 0),
-(36, '$2y$12$NSPRZfqEOAzDNp2ddQxuCO/Rmhsuwuszw6Bkga5285S9D6rdaySA6', 'high111', NULL, 'hi1@gmail.com', 0, 0),
-(37, '$2y$12$MnJsRmnwI6AcRFP1D8/qkO//Ud8nJJ212zGAnOJhF2q4TyPGmzNeC', 'hihihi', 'public/image2/download (4).jpeg', 'hihi@gmail.com', 0, 0),
-(38, '$2y$12$lL9ILNfGcaQD8dBPuzOo..F5joPIR7VimZOex90qXcVYMxcsFuE2a', 'hoang', 'public/image2/Screenshot 2023-11-10 131754.png', 'gmail@hoang.com', 2, 0),
-(39, '$2y$12$13juPpsvGQ3mC58SebuMg.R6kzC5IytLgFwhOYAn3eKDpjuQI/xbC', 'hoang1', 'public/image2/Screenshot 2023-11-10 131754.png', 'h@gmail.com', 0, 0),
-(40, '$2y$12$qnoefS.zOETrTgWhrSdGH.GyaDyT7m0ilNWOEOepgMg8/QDorQ94m', 'hoang', 'public/image2/Screenshot 2023-11-10 131754.png', 'q@gmail.com', 0, 0),
-(41, '$2y$12$JUojedzWFeCRhV9Xpqm0Gu7KqD9EOYRS.fGxx78TqH5WyPZb45kX6', 'Nguyen Vu Dai Nam', 'public/image2/5c05c6901a63ca3d9372.jpg', 'hoa123@gmail.com', 0, 0),
-(42, '$2y$12$dCSkIms7hTxMVdkceBsjh.6MJsP1agz4R24mknYN1jTnGcajGFP1K', 'Nguyen Vu Dai Nam1', 'public/image2/2a71fa4eb95967073e48.jpg', 'lieuvu@gmail.com', 0, 0),
-(43, '$2y$12$QTV2nSVj0nQ0UmtOqW5X2eahFdIwszyHCtD/RB/8/0EZI2aZF3ZIy', 'Nguyễn Vũ Đại Nam', '', 'nguyenvudaianm113@gmail.com', 1, 0),
-(44, '$2y$12$G/N3f5uw8Y6gfKr6qAXxvueW3fw1Qr6mguvdJxCr0Ir.nmc0D/mjS', 'Nguyen Vu Dai Nam', NULL, 'nguyenvudaianm115@gmail.com', 0, 0);
+(45, '$2y$12$KcoU1ekT21V8t/ZhaKhBw.oWMh1KZS1Y8vZgOBHW4hQ3uRRJLRfC.', 'tú đỗ', NULL, 'tukyx77@gmail.com', 0, 0),
+(46, '$2y$12$RZLIsMrM3tlyFdB3x8L9b.Mz2tKEaQz1iyQ2y7OLR1bBiDr0RhiDa', 'tus 1', NULL, 'tukyx771@gmail.com', 1, 0),
+(47, '$2y$12$8k/BHdrA40RTcwePRseezObKkwnMiv2uSNz/c1Ikr5GxEh3zlCS/a', 'Nguyễn Ngọc', NULL, 'ngocnv@gmail.com', 0, 0),
+(48, '$2y$12$rf8Ci6eND419hRYvM29wnOWVEAwHTNjUajBNTXrst.wtHY3j4M7GK', 'Mạnh ', NULL, 'manh123@gmail.com', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -242,9 +245,9 @@ INSERT INTO `khach_hang` (`ma_khach_hang`, `mat_khau`, `ho_ten`, `hinh`, `email`
 --
 
 CREATE TABLE `loai_hang` (
-  `ma_loai` int(10) NOT NULL COMMENT 'mã loại',
-  `ten_loai` varchar(299) NOT NULL COMMENT 'tên loại',
-  `an_loai_hang` tinyint(4) NOT NULL DEFAULT 0
+  `ma_loai` int NOT NULL COMMENT 'mã loại',
+  `ten_loai` varchar(299) COLLATE utf8mb4_general_ci NOT NULL COMMENT 'tên loại',
+  `an_loai_hang` tinyint NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -253,8 +256,10 @@ CREATE TABLE `loai_hang` (
 
 INSERT INTO `loai_hang` (`ma_loai`, `ten_loai`, `an_loai_hang`) VALUES
 (33, 'Iphone', 0),
-(38, 'samsung', 0),
-(39, 'nokia', 0);
+(38, 'Samsung', 0),
+(39, 'Nokia', 0),
+(40, 'Oppo', 0),
+(41, 'Huawei', 0);
 
 -- --------------------------------------------------------
 
@@ -263,9 +268,9 @@ INSERT INTO `loai_hang` (`ma_loai`, `ten_loai`, `an_loai_hang`) VALUES
 --
 
 CREATE TABLE `phuong_xa` (
-  `id_phuong_xa` int(10) NOT NULL,
-  `id_quan_huyen` int(10) NOT NULL,
-  `ten_phuong_xa` varchar(299) NOT NULL
+  `id_phuong_xa` int NOT NULL,
+  `id_quan_huyen` int NOT NULL,
+  `ten_phuong_xa` varchar(299) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -10870,9 +10875,9 @@ INSERT INTO `phuong_xa` (`id_phuong_xa`, `id_quan_huyen`, `ten_phuong_xa`) VALUE
 --
 
 CREATE TABLE `quan_huyen` (
-  `id_quan_huyen` int(10) NOT NULL,
-  `id_tinh` int(10) NOT NULL,
-  `ten_quan_huyen` varchar(100) NOT NULL
+  `id_quan_huyen` int NOT NULL,
+  `id_tinh` int NOT NULL,
+  `ten_quan_huyen` varchar(100) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -11593,8 +11598,8 @@ INSERT INTO `quan_huyen` (`id_quan_huyen`, `id_tinh`, `ten_quan_huyen`) VALUES
 --
 
 CREATE TABLE `tinh` (
-  `id_tinh` int(10) NOT NULL,
-  `ten_tinh` varchar(199) NOT NULL
+  `id_tinh` int NOT NULL,
+  `ten_tinh` varchar(199) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -11673,12 +11678,12 @@ INSERT INTO `tinh` (`id_tinh`, `ten_tinh`) VALUES
 --
 
 CREATE TABLE `tin_nhan` (
-  `ma_tin_nhan` int(11) NOT NULL,
-  `noi_dung` text NOT NULL,
-  `nguoi_gui` int(11) NOT NULL,
-  `nguoi_nhan` int(11) NOT NULL,
-  `ma_hoi_thoai` int(11) NOT NULL,
-  `create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `ma_tin_nhan` int NOT NULL,
+  `noi_dung` text COLLATE utf8mb4_general_ci NOT NULL,
+  `nguoi_gui` int NOT NULL,
+  `nguoi_nhan` int NOT NULL,
+  `ma_hoi_thoai` int NOT NULL,
+  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -11699,11 +11704,11 @@ INSERT INTO `tin_nhan` (`ma_tin_nhan`, `noi_dung`, `nguoi_gui`, `nguoi_nhan`, `m
 --
 
 CREATE TABLE `tin_tuc` (
-  `id` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `contents` text NOT NULL,
+  `id` int NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `contents` text COLLATE utf8mb4_general_ci NOT NULL,
   `date` date NOT NULL,
-  `views` int(11) NOT NULL
+  `views` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -11826,73 +11831,73 @@ ALTER TABLE `tin_tuc`
 -- AUTO_INCREMENT for table `binh_luann`
 --
 ALTER TABLE `binh_luann`
-  MODIFY `ma_binh_luan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=712;
+  MODIFY `ma_binh_luan` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=712;
 
 --
 -- AUTO_INCREMENT for table `capacity`
 --
 ALTER TABLE `capacity`
-  MODIFY `id_capacity` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_capacity` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `color`
 --
 ALTER TABLE `color`
-  MODIFY `id_color` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_color` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `ct_don_hang`
 --
 ALTER TABLE `ct_don_hang`
-  MODIFY `id_ct_don_hang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_ct_don_hang` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `don_hang`
 --
 ALTER TABLE `don_hang`
-  MODIFY `id_don_hang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_don_hang` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `gio_hang`
 --
 ALTER TABLE `gio_hang`
-  MODIFY `id_gio_hang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=147;
+  MODIFY `id_gio_hang` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=183;
 
 --
 -- AUTO_INCREMENT for table `hang_hoa`
 --
 ALTER TABLE `hang_hoa`
-  MODIFY `ma_hang_hoa` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `ma_hang_hoa` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `hoi_thoai`
 --
 ALTER TABLE `hoi_thoai`
-  MODIFY `ma_hoi_thoai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ma_hoi_thoai` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `khach_hang`
 --
 ALTER TABLE `khach_hang`
-  MODIFY `ma_khach_hang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `ma_khach_hang` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `loai_hang`
 --
 ALTER TABLE `loai_hang`
-  MODIFY `ma_loai` int(10) NOT NULL AUTO_INCREMENT COMMENT 'mã loại', AUTO_INCREMENT=40;
+  MODIFY `ma_loai` int NOT NULL AUTO_INCREMENT COMMENT 'mã loại', AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `tin_nhan`
 --
 ALTER TABLE `tin_nhan`
-  MODIFY `ma_tin_nhan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ma_tin_nhan` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tin_tuc`
 --
 ALTER TABLE `tin_tuc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
