@@ -1,6 +1,7 @@
 <?php
 
 include "controller/c_trang_chu.php";
+//Khởi tạo đối tượng mới
 $c_trang_chu = new C_trang_chu();
 if (isset($_POST['search-btn'])) {
     $search = $_POST['search'];

@@ -29,7 +29,8 @@ class M_khach_hang extends database
     {
 
         $sql = "UPDATE khach_hang SET   ho_ten = ?, email = ? WHERE ma_khach_hang = ?";
-        $this->pdo_execute($sql,  $ho_ten, $email, $ma_khach_hang);
+        return $this->pdo_execute($sql,  $ho_ten, $email, $ma_khach_hang);
+        
     }
     function khach_hang_dang_ky( $email, $ho_ten, $mat_khau)
     {
